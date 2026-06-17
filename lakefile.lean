@@ -51,8 +51,8 @@ require "leanprover-community" / mathlib @ git leanVersion
 ```
  -/
 
--- require "leanprover-community" / mathlib @ git 23
-require mathlib from git "https://github.com/leanprover-community/mathlib4.git"
+require "leanprover-community" / mathlib @ git "v4.23.0"
+-- require mathlib from git "https://github.com/leanprover-community/mathlib4.git"
 
 /-!
 # PACKAGE CONFIGURATION

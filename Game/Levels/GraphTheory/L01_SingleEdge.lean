@@ -15,9 +15,9 @@ An edge contributes 1 to the degree of each endpoint.
 How much does it contribute in total?
 "
 
-TheoremDoc one_edge_contributes_two "
-One edge contributes 2 to the sum of degrees.
-"
+-- TheoremDoc one_edge_contributes_two "
+-- One edge contributes 2 to the sum of degrees.
+-- "
 
 Statement :
   1 + 1 = 2 := by

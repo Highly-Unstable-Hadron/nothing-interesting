@@ -41,4 +41,12 @@ def addEdge (G : Graph) (e : Edge) : Graph :=
   E := insert e G.E
 }
 
+@[simp] theorem edgeCount_empty :
+    edgeCount emptyGraph = 0 := by
+  simp [edgeCount, emptyGraph]
+
+@[simp] theorem sumDegrees_empty :
+    sumDegrees emptyGraph = 0 := by
+  simp [sumDegrees, emptyGraph]
+
 end GraphTheoryGame

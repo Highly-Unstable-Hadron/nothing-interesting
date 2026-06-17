@@ -19,18 +19,31 @@ Statement
   sumDegrees G
     =
   2 * edgeCount G := by
+  refine graph_induction_on_edges
+    (P := fun G => sumDegrees G = 2 * edgeCount G)
+    ?base ?step G
+  -- apply graph_induction_on_edges
 
-  induction G using graph_induction_on_edges with
+  · simp
 
-  | h0 =>
-      simp
+  · intro G e hnotin ih
 
-  | hstep G e hnotin ih =>
+    rw [sumDegrees_addEdge G e hnotin]
+    rw [edgeCount_addEdge G e hnotin]
+    rw [ih]
 
-      rw [sumDegrees_addEdge G e hnotin]
-      rw [edgeCount_addEdge G e hnotin]
-      rw [ih]
+    ring
+  -- induction G using graph_induction_on_edges with
 
-      ring
+  -- | h0 =>
+  --     simp
+
+  -- | hstep G e hnotin ih =>
+
+  --     rw [sumDegrees_addEdge G e hnotin]
+  --     rw [edgeCount_addEdge G e hnotin]
+  --     rw [ih]
+
+  --     ring
 
 end GraphTheoryGame
