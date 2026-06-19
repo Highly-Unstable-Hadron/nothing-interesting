@@ -1,5 +1,4 @@
 import Game.Metadata
-namespace GraphTheoryGame
 
 World "GraphTheory"
 
@@ -7,6 +6,7 @@ Level 3
 
 Title "Handshake Lemma"
 
+namespace GraphTheoryGame
 Introduction
 "
 The total degree sum equals twice the number of edges.
@@ -14,7 +14,10 @@ The total degree sum equals twice the number of edges.
 Prove it by induction on the number of edges.
 "
 
-Statement
+/--
+The sum of the degrees of the vertices is twice the number of the edges in a graph.
+-/
+Statement handshake_lemma
   (G : Graph) :
   sumDegrees G
     =
@@ -45,5 +48,9 @@ Statement
   --     rw [ih]
 
   --     ring
+
+NewTactic ring intro refine
+NewTheorem GraphTheoryGame.handshake_lemma
+NewDefinition Game.Common.GraphDefs.edgeCount Game.Common.GraphParity.edgeCount_addEdge Game.Common.GraphParity.graph_induction_on_edges
 
 end GraphTheoryGame

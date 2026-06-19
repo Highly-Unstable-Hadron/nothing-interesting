@@ -1,6 +1,6 @@
 import Game.Metadata
 
-namespace GraphTheoryGame
+-- namespace GraphTheoryGame
 
 World "GraphTheory"
 
@@ -23,4 +23,8 @@ Statement :
   1 + 1 = 2 := by
   simp
 
-end GraphTheoryGame
+Conclusion "That was easy, wasn't it"
+
+NewTactic simp
+
+-- end GraphTheoryGame

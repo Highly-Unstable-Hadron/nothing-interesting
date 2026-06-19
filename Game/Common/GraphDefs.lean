@@ -35,6 +35,12 @@ def emptyGraph : Graph :=
   E := ∅
 }
 
+def isolatedGraph (n: Nat) : Graph :=
+{
+  V := Finset.Icc 1 n,
+  E := ∅
+}
+
 def addEdge (G : Graph) (e : Edge) : Graph :=
 {
   V := G.V,

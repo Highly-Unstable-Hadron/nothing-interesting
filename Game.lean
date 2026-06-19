@@ -1,6 +1,6 @@
 import Game.Levels.GraphTheory
 
-Game "KnivesOut"
+-- Game "KnivesOut"
 
 Title "Knives Out"
 
@@ -11,5 +11,12 @@ Round 2 of Knives Out.
 A murderer hides among the suspects.
 To uncover the culprit, prove the graph-theoretic facts that unlock the clues.
 "
+
+Info "
+;)
+"
+
+Languages "en"
+CaptionShort ";)"
 
 MakeGame
