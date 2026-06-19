@@ -12,12 +12,14 @@ msgstr "Project-Id-Version: Game v4.23.0\n"
 msgid "level completed with warnings… 🎭"
 msgstr ""
 
-#: GameServer.RpcHandlers
-msgid "level completed! 🎉"
+#: Game.Levels.GraphTheory.L03_Handshake
+#: Game.Levels.GraphTheory.L03_Handshake
+#: Game.Levels.GraphTheory.L03_Handshake
+msgid ""
 msgstr ""
 
-#: Game.Levels.GraphTheory.L03_Handshake
-msgid "The sum of the degrees of the vertices is twice the number of the edges in a graph."
+#: GameServer.RpcHandlers
+msgid "level completed! 🎉"
 msgstr ""
 
 #: Game
@@ -28,11 +30,25 @@ msgstr ""
 msgid ":)"
 msgstr ""
 
+#. §0: `def degree (G : Graph) (v : Nat) : Nat := (G.E.filter (fun e => incident v e)).card`
+#. §1: `degree G v`
+#. §2: `G`
+#. §3: `v`
+#. §4: `v`
+#: Game.Levels.GraphTheory.L02_AddEdge
+msgid "§0\n"
+"§1 where §2 is a graph and §3 is a vertex gives you the number of edges which have §4 as one of their endpoints."
+msgstr ""
+
 #: Game
 msgid "Round 2 of Knives Out.\n"
 "\n"
 "A murderer hides among the suspects.\n"
 "To uncover the culprit, prove the graph-theoretic facts that unlock the clues."
+msgstr ""
+
+#: Game.Levels.GraphTheory
+msgid "Graph Theory"
 msgstr ""
 
 #: GameServer.RpcHandlers
@@ -43,18 +59,49 @@ msgstr ""
 msgid "That was easy, wasn't it"
 msgstr ""
 
-#: Game.Levels.GraphTheory
-msgid "Graph Theory"
-msgstr ""
-
 #: Game.Levels.GraphTheory.L03_Handshake
 msgid "Handshake Lemma"
+msgstr ""
+
+#. §0: `theorem handshake_lemma (G : Graph) : sumDegrees G = 2 * edgeCount G`
+#: Game.Levels.GraphTheory.L03_Handshake
+msgid "The sum of the degrees of the vertices is twice the number of the edges in a graph.\n"
+"§0"
+msgstr ""
+
+#. §0: `sumDegrees_addEdge (G : Graph) (e : Edge) (h : e ∉ G.E) : sumDegrees (addEdge G e)  = sumDegrees G + 2`
+#: Game.Levels.GraphTheory.L02_AddEdge
+msgid "§0\n"
+"Adding one new edge increases the total degree sum by 2."
 msgstr ""
 
 #: Game.Levels.GraphTheory.L03_Handshake
 msgid "The total degree sum equals twice the number of edges.\n"
 "\n"
 "Prove it by induction on the number of edges."
+msgstr ""
+
+#. §0: `def sumDegrees (G : Graph) : Nat := G.V.sum (fun v => degree G v)`
+#. §1: `degree`
+#: Game.Levels.GraphTheory.L02_AddEdge
+msgid "§0\n"
+"The sum of the degrees of all the vertices in the graph. See definition of §1 for more."
+msgstr ""
+
+#. §0: ```
+#. structure Edge where
+#.   fst : Nat
+#.   snd : Nat
+#.   hne : fst ≠ snd
+#. ```
+#. §1: `(fst, snd)`
+#. §2: `fst != snd`
+#. §3: `fst`
+#. §4: `snd`
+#: Game.Levels.GraphTheory.L02_AddEdge
+msgid "§0\n"
+"Edges are ordered pairs of natural numbers §1 where §2.\n"
+"§3 indicates the vertex the edge arises out of and §4 indicates the vertex the edge goes into."
 msgstr ""
 
 #: Game.Levels.GraphTheory.L02_AddEdge
@@ -81,6 +128,24 @@ msgstr ""
 
 #: Game.Levels.GraphTheory.L01_SingleEdge
 msgid "One Edge Contributes Two"
+msgstr ""
+
+#. §0: ```
+#. structure Graph where
+#.   V : Finset Nat
+#.   E : Finset Edge
+#. ```
+#. §1: `(a, b)`
+#. §2: `a != b`
+#. §3: `G`
+#. §4: `G.V`
+#. §5: `G.E`
+#: Game.Levels.GraphTheory.L02_AddEdge
+msgid "§0\n"
+"A graph is a set of vertices V (each vertex represented as a natural number) and a set of edges E\n"
+"(each edge represented by an ordered pair §1 where §2. See the definition of Edge for more info)\n"
+"\n"
+"For a graph §3, you can access its vertex set so: §4, and its edge set so: §5."
 msgstr ""
 
 #: Game

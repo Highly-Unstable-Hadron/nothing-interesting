@@ -62,12 +62,7 @@ axiom degree_addEdge_other
 Adding one new edge increases the total degree sum by 2.
 -/
 axiom sumDegrees_addEdge
-  (G : Graph)
-  (e : Edge)
-  (h : e ∉ G.E) :
-  sumDegrees (addEdge G e)
-    =
-  sumDegrees G + 2
+  (G : Graph) (e : Edge) (h : e ∉ G.E) : sumDegrees (addEdge G e)  = sumDegrees G + 2
 
 /-
   --------------------------------------------------
@@ -81,7 +76,7 @@ Induction on the number of edges.
 This is the induction principle students use
 for the Handshake Lemma.
 -/
-axiom graph_induction_on_edges
+axiom graph_induction
   {P : Graph → Prop} :
     P emptyGraph →
     (∀ G e,
@@ -89,6 +84,11 @@ axiom graph_induction_on_edges
         P G →
         P (addEdge G e)) →
     ∀ G, P G
+
+axiom graph_induction' (P : Graph → Prop) : ∀ (N:Nat), P (isolatedGraph N) -> (∀ G e,
+        e ∉ G.E →
+        P G →
+        P (addEdge G e)) -> ∀ G, P G
 
 
 @[simp]

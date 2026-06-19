@@ -25,6 +25,6 @@ Statement :
 
 Conclusion "That was easy, wasn't it"
 
-NewTactic simp
+NewTactic simp exact apply
 
 -- end GraphTheoryGame
