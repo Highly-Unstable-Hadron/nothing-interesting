@@ -62,9 +62,9 @@ DefinitionDoc Game.Common.GraphDefs.Edge as "Edge"
 `sumDegrees_addEdge (G : Graph) (e : Edge) (h : e ∉ G.E) : sumDegrees (addEdge G e)  = sumDegrees G + 2`
 Adding one new edge increases the total degree sum by 2.
 -/
-DefinitionDoc Game.Common.GraphParity.sumDegrees_addEdge as "sumDegrees_addEdge"
+TheoremDoc GraphTheoryGame.sumDegrees_addEdge as "sumDegrees_addEdge" in "GraphTheory"
 
-NewTactic rw nth_rewrite
-NewDefinition Game.Common.GraphDefs.degree Game.Common.GraphDefs.sumDegrees Game.Common.GraphDefs.Graph Game.Common.GraphDefs.Edge Game.Common.GraphParity.sumDegrees_addEdge
+NewDefinition Game.Common.GraphDefs.degree Game.Common.GraphDefs.sumDegrees Game.Common.GraphDefs.Graph Game.Common.GraphDefs.Edge
+NewTheorem GraphTheoryGame.sumDegrees_addEdge
 
 end GraphTheoryGame

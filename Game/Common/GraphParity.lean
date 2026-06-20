@@ -10,6 +10,9 @@ Used in Level 4.
 def OddDegreeVertices (G : Graph) : Finset Nat :=
   G.V.filter (fun v => Odd (degree G v))
 
+def oddDegreeCount (G : Graph) : Nat :=
+  (OddDegreeVertices G).card
+
 /-
   --------------------------------------------------
   Degree-change lemmas
@@ -77,18 +80,29 @@ This is the induction principle students use
 for the Handshake Lemma.
 -/
 axiom graph_induction
-  {P : Graph → Prop} :
-    P emptyGraph →
-    (∀ G e,
-        e ∉ G.E →
-        P G →
-        P (addEdge G e)) →
-    ∀ G, P G
+  (P : Graph → Prop)
+  (G : Graph)
+  (h0 : P emptyGraph)
+  (hstep :
+    ∀ G e,
+      e ∉ G.E →
+      P G →
+      P (addEdge G e))
+  :
+  P G
 
-axiom graph_induction' (P : Graph → Prop) : ∀ (N:Nat), P (isolatedGraph N) -> (∀ G e,
-        e ∉ G.E →
-        P G →
-        P (addEdge G e)) -> ∀ G, P G
+-- axiom graph_induction'
+--   (n : Nat)
+--   (P : Graph → Prop)
+--   (G : Graph)
+--   (h0 : P (isolatedGraph n))
+--   (hstep :
+--     ∀ G e,
+--       e ∉ G.E →
+--       P G →
+--       P (addEdge G e))
+--   :
+--   P G
 
 
 @[simp]

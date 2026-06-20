@@ -1,30 +1,53 @@
 import Game.Metadata
 
--- namespace GraphTheoryGame
-
 World "GraphTheory"
 
 Level 1
 
 Title "One Edge Contributes Two"
 
+namespace GraphTheoryGame
+
 Introduction
 "
 An edge contributes 1 to the degree of each endpoint.
 
 How much does it contribute in total?
+
+`one_edge_graph` is defined as:
+```
+def one_edge_graph : Graph :=
+{
+  V := { 1, 2 },        // vertices
+  E := { Edge.mk 1 2 }  // edges
+}
+```
+
+It is a graph with 2 vertices (labelled 1 and 2 respectively) and a single edge between them.
 "
 
--- TheoremDoc one_edge_contributes_two "
--- One edge contributes 2 to the sum of degrees.
--- "
+def h : 1 ≠ 2 := by simp
 
-Statement :
-  1 + 1 = 2 := by
+def one_edge_graph : Graph :=
+{
+  V := { 1, 2 },
+  E := { (Edge.mk 1 2 h) }
+}
+
+Statement : sumDegrees (one_edge_graph) = 2 := by
+  rw [sumDegrees]
+  change degree one_edge_graph 1 + degree one_edge_graph 2 = 2
+  repeat rw [degree]
+  change 1 + 1 = 2
   simp
+
+-- Statement :
+--   1 + 1 = 2 := by
+--   simp
 
 Conclusion "That was easy, wasn't it"
 
-NewTactic simp exact apply
+NewTactic simp exact apply rw change nth_rewrite
 
--- end GraphTheoryGame
+
+end GraphTheoryGame
