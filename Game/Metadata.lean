@@ -3,6 +3,7 @@ import GameServer.Commands
 -- import Mathlib.Tactic.Common
 import Game.Common.GraphDefs
 import Game.Common.GraphParity
+import Game.Common.GraphColouring
 
 /-! Use this file to add things that should be available in all levels.
 

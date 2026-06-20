@@ -15,17 +15,12 @@ Prove it by induction on the number of edges.
 "
 
 Statement
-  (G : Graph) :
-  sumDegrees G
-    =
-  2 * edgeCount G := by
+  (G : Graph) : sumDegrees G = 2 * edgeCount G := by
   induction G using graph_induction with
   | h0 =>
       rw [sumDegrees, emptyGraph, edgeCount]
       change 0 = 2 * 0
       simp
-
-
   | hstep G e hnotin ih =>
       rw [sumDegrees_addEdge, ih]
       rw [edgeCount_addEdge]
@@ -58,7 +53,7 @@ to prove the inductive case.
 -/
 TheoremDoc GraphTheoryGame.graph_induction as "graph_induction" in "GraphTheory"
 
-NewTactic ring_nf intro induction
+NewTactic ring_nf intro induction exact apply
 NewTheorem GraphTheoryGame.graph_induction GraphTheoryGame.edgeCount_addEdge
 NewDefinition Game.Common.GraphDefs.edgeCount
 

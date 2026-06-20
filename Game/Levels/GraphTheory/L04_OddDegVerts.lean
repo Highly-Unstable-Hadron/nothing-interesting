@@ -18,6 +18,7 @@ Use this fact to show that the number of odd-degree vertices is even.
 Statement
   (G : Graph) :
   Even (oddDegreeCount G) := by
+  Hint "Use the `handshake_lemma` you proved last level"
   have evensum : Even (sumDegrees G) := by
     rw [Even]
     use (edgeCount G)
@@ -32,7 +33,7 @@ _credits: github.com/leanprover-community/NNG4_
 # Summary
 
 The `have` tactic can be used to add new hypotheses to a level, but of course
-you have to prove them.
+you have to prove them.  Use `have` for hypothesis/propositions and `let` for explicit objects/functions.
 
 
 ## Example

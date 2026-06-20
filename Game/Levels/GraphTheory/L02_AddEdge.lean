@@ -14,12 +14,8 @@ Use the helper lemma.
 "
 
 Statement
-  (G : Graph)
-  (e : Edge)
-  (h : e ∉ G.E) :
-  sumDegrees (addEdge G e)
-    =
-  sumDegrees G + 2 := by
+  (G : Graph) (e : Edge) (h : e ∉ G.E) :
+  sumDegrees (addEdge G e) = sumDegrees G + 2 := by
   Hint "Check your unlocked theorems"
   rw [sumDegrees_addEdge G e h]
 
@@ -70,6 +66,7 @@ Adding one new edge increases the total degree sum by 2.
 -/
 TheoremDoc GraphTheoryGame.sumDegrees_addEdge as "sumDegrees_addEdge" in "GraphTheory"
 
+NewTactic rw nth_rewrite
 NewDefinition Game.Common.GraphDefs.degree Game.Common.GraphDefs.sumDegrees Game.Common.GraphDefs.Graph Game.Common.GraphDefs.Edge
 NewTheorem GraphTheoryGame.sumDegrees_addEdge
 

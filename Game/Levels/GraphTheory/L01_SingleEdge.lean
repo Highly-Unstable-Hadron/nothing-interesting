@@ -36,15 +36,15 @@ def one_edge_graph : Graph :=
 
 Statement : sumDegrees (one_edge_graph) = 2 := by
   Hint "Try `change`ing it to something equivalent (...wait doesn't this just say 1 + 1 = 2?)"
-  rw [sumDegrees]
-  change degree one_edge_graph 1 + degree one_edge_graph 2 = 2
-  repeat rw [degree]
+  -- rw [sumDegrees]
+  -- change degree one_edge_graph 1 + degree one_edge_graph 2 = 2
+  -- repeat rw [degree]
   change 1 + 1 = 2
   simp
 
 Conclusion "That was easy, wasn't it"
 
-NewTactic simp exact apply rw change nth_rewrite
+NewTactic simp change
 
 
 end GraphTheoryGame

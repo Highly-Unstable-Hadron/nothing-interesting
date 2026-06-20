@@ -1,5 +1,4 @@
 import Game.Metadata
-import Game.Common.GraphColouring
 
 World "GraphTheory"
 
