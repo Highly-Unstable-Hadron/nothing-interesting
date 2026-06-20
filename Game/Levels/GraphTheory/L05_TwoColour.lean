@@ -14,7 +14,8 @@ Provide a colouring of this graph.
 "
 
 Statement : ∃ c, ValidColoring squareGraph c := by
-  Hint "Use `let` to define a function that maps every node to a colour.  Did you `simp` can be given arguments?"
+  Hint "Use `let` to define a function that maps every node to a colour.  Did you know that `simp`
+   can be given arguments?"
   let cc (n: Nat) : Color := if n = 0 ∨ n = 2 then Color.red else Color.blue
   use cc
   rw [ValidColoring]
@@ -34,12 +35,24 @@ Statement : ∃ c, ValidColoring squareGraph c := by
               simp [cc, e30, h'']
 /--
 It's a list of all the edges in the following graph:
+```
   0 -- 1
   |    |
   3 -- 2
+```
 Use `cases square_edges e he` multiple times to prove that a property `P` holds on each of the edges.
 -/
 TheoremDoc GraphTheoryGame.square_edges as "square_edges" in "GraphTheory"
+/--
+```
+theorem color_self_eq (c : Nat → Color) (v : Nat) :
+  c v = c v :=
+  rfl
+```
+
+Proves reflexivity on `c v`/`Color`.
+-/
+TheoremDoc GraphTheoryGame.color_self_eq as "color_self_eq" in "GraphTheory"
 /--
 ```
 def ValidColoring
@@ -53,9 +66,11 @@ adjacent nodes have the same colour. Use `rw [ValidColoring]` to expand its defi
 DefinitionDoc Game.Common.GraphColouring.ValidColoring as "ValidColoring"
 /--
 A hard-coded square graph with 4 vertices:
+```
   0 -- 1
   |    |
   3 -- 2
+```
 ```
 def squareGraph : Graph :=
 { V := {0,1,2,3} --vertices
@@ -82,7 +97,7 @@ DefinitionDoc Or.inr as "inr"
 NewTactic cases «let»
 NewDefinition Game.Common.GraphColouring.ValidColoring Game.Common.GraphColouring.squareGraph
   Game.Common.GraphColouring.Color Or.inl Or.inr
-NewTheorem GraphTheoryGame.square_edges
+NewTheorem GraphTheoryGame.square_edges GraphTheoryGame.color_self_eq
 
 Conclusion "Nicee!!  Time for something harder"
 

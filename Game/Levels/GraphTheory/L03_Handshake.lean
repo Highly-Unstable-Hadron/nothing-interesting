@@ -53,7 +53,7 @@ to prove the inductive case.
 -/
 TheoremDoc GraphTheoryGame.graph_induction as "graph_induction" in "GraphTheory"
 
-NewTactic ring_nf intro induction exact apply
+NewTactic ring_nf intro induction apply
 NewTheorem GraphTheoryGame.graph_induction GraphTheoryGame.edgeCount_addEdge
 NewDefinition Game.Common.GraphDefs.edgeCount
 

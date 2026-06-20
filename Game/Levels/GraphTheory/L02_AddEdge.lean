@@ -66,7 +66,7 @@ Adding one new edge increases the total degree sum by 2.
 -/
 TheoremDoc GraphTheoryGame.sumDegrees_addEdge as "sumDegrees_addEdge" in "GraphTheory"
 
-NewTactic rw nth_rewrite
+NewTactic rw nth_rewrite exact
 NewDefinition Game.Common.GraphDefs.degree Game.Common.GraphDefs.sumDegrees Game.Common.GraphDefs.Graph Game.Common.GraphDefs.Edge
 NewTheorem GraphTheoryGame.sumDegrees_addEdge
 

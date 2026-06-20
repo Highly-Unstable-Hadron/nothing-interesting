@@ -2,35 +2,19 @@ import Game.Common.GraphDefs
 
 namespace GraphTheoryGame
 
-/-
-  Colours
--/
-
 inductive Color where
 | red
 | blue
 deriving DecidableEq
-
-/-
-  Adjacency
--/
 
 def adjacent (G : Graph) (u v : Nat) : Prop :=
   ∃ e ∈ G.E,
     (e.fst = u ∧ e.snd = v) ∨
     (e.fst = v ∧ e.snd = u)
 
-/-
-  Valid colourings
--/
-
 @[simp]
 def ValidColoring (G : Graph) (c : Nat → Color) : Prop :=
   ∀ e ∈ G.E, c e.fst ≠ c e.snd
-
-/-
-  Bipartite graphs
--/
 
 def Bipartite (G : Graph) : Prop := ∃ c, ValidColoring G c
 
@@ -90,5 +74,16 @@ axiom neq_blue : col ≠ Color.blue → col = Color.red
 axiom triangle_edge_01 : e01 ∈ triangleGraph.E
 axiom triangle_edge_12 : e12 ∈ triangleGraph.E
 axiom triangle_edge_20 : e20 ∈ triangleGraph.E
+
+/- Level 7 -/
+
+structure OddCycle (G : Graph) where
+  start : Nat
+  finish : Nat
+  hsame : finish = start
+
+axiom oddCycle_opposite_color
+  (hc : ValidColoring G c) (hC : OddCycle G) : c hC.start ≠ c hC.finish
+theorem color_self_eq (c : Nat → Color) (v : Nat) : c v = c v := rfl  -- do i need this?
 
 end GraphTheoryGame

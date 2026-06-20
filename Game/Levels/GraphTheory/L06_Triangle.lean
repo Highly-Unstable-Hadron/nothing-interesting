@@ -19,11 +19,13 @@ def triangleGraph : Graph :=
 -- e01, e12 and e20 are the edges of the graph
 ```
 It looks like this:
+```
   0
   |\
   | \
   |  \
   1---2
+```
 
 To make your life easier, the following axioms have been added:
 ```
@@ -35,13 +37,13 @@ axiom neq_blue : col ≠ Color.blue → col = Color.red
 axiom triangle_edge_01 : e01 ∈ triangleGraph.E
 axiom triangle_edge_12 : e12 ∈ triangleGraph.E
 axiom triangle_edge_20 : e20 ∈ triangleGraph.E
-
 theorem validColoring_adjacent
   {G : Graph} {c : Nat → Color} -- implicit arguments, the graph and the color mapping
   (hc : ValidColoring G c) (e : Edge) (he : e ∈ G.E) :
   c e.fst ≠ c e.snd := by
   exact hc e he
 ```
+
 ## Usage
 ```
 have he : c 0 ≠ Color.red
@@ -53,12 +55,11 @@ have he' : c 0 = Color.blue := by exact (neq_red he)
 have hc : ValidColoring G c
 have : c 0 ≠ c 1 := by exact (validColoring_adjacent hc e01 triangle_edge_01)
 ```
+
 Now off you go!
 "
 
-Statement (c : Nat → Color)
-  (hc : ValidColoring triangleGraph c) :
-  False := by
+Statement (c : Nat → Color) (hc : ValidColoring triangleGraph c) : False := by
     Hint "P.S. To prove `False`, use the `contradiction` tactic when you see two obviously contradictory
       hypotheses in your goal state."
     have c01 : c 0 ≠ c 1 := by exact (validColoring_adjacent hc e01 triangle_edge_01)
@@ -104,13 +105,14 @@ theorem validColoring_adjacent
   c e.fst ≠ c e.snd := by
   exact hc e he
 ```
+
 `validColoring_adjacent` can be used like
 ```
 have hc : ValidColoring G c  -- G is a graph, c is a colour mapping
 have : c 0 ≠ c 1 := by exact (validColoring_adjacent hc e01 triangle_edge_01)
 ```
 -/
-TheoremDoc GraphTheoryGame.validColoring_adjacent as "validColoring_adjacent"
+TheoremDoc GraphTheoryGame.validColoring_adjacent as "validColoring_adjacent" in "GraphTheory"
 /--
 ```
 -- if a vertex is not colored red, it is colored blue
@@ -118,6 +120,7 @@ axiom neq_red : col ≠ Color.red → col = Color.blue
 -- and vice versa
 axiom neq_blue : col ≠ Color.blue → col = Color.red
 ```
+
 ## Usage
 ```
 have he : c 0 ≠ Color.red
@@ -125,7 +128,7 @@ have he' : c 0 = Color.blue := by exact (neq_red he)
 ```
 similarly for neq_blue
 -/
-TheoremDoc GraphTheoryGame.neq_blue as "neq_blue"
+TheoremDoc GraphTheoryGame.neq_blue as "neq_blue" in "GraphTheory"
 /--
 ```
 -- if a vertex is not colored red, it is colored blue
@@ -133,6 +136,7 @@ axiom neq_red : col ≠ Color.red → col = Color.blue
 -- and vice versa
 axiom neq_blue : col ≠ Color.blue → col = Color.red
 ```
+
 ## Usage
 ```
 have he : c 0 ≠ Color.red
@@ -140,7 +144,7 @@ have he' : c 0 = Color.blue := by exact (neq_red he)
 ```
 similarly for neq_blue
 -/
-TheoremDoc GraphTheoryGame.neq_red as "neq_red"
+TheoremDoc GraphTheoryGame.neq_red as "neq_red" in "GraphTheory"
 /--
 ```
 def triangleGraph : Graph :=
@@ -148,12 +152,15 @@ def triangleGraph : Graph :=
   E := {e01, e12, e20} }
 -- e01, e12 and e20 are the edges of the graph
 ```
+
 It looks like this:
+```
   0
   |\
   | \
   |  \
   1---2
+```
 -/
 DefinitionDoc Game.Common.GraphColouring.triangleGraph as "triangleGraph"
 /--
