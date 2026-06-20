@@ -1,36 +1,43 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-19\n"
+"POT-Creation-Date: 2026-06-20\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
 
-#: GameServer.RpcHandlers
-msgid "level completed with warnings… 🎭"
-msgstr ""
-
-#: Game.Levels.GraphTheory.L03_Handshake
-#: Game.Levels.GraphTheory.L03_Handshake
-#: Game.Levels.GraphTheory.L03_Handshake
-msgid ""
+#. §0: ```
+#. -- multiset of degrees of each vertex
+#. def DegreeContributions (G : Graph) := (Multiset.map (degree G) G.V.val)
+#. def OddDegreeContributions (G : Graph) := (DegreeContributions G).filter (fun x => Odd x)
+#. ```
+#. §1: `OddDegreeContributions G`
+#. §2: `G`
+#. §3: `{ ∀ v ∈ G.V, (degree v) if Odd (degree v) }`
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "§0\n"
+"§1 returns a multiset (a set with possibly repeated elements) containing\n"
+"the degrees of the vertices in the graph §2 whose degree is odd, i.e. §3"
 msgstr ""
 
 #: GameServer.RpcHandlers
 msgid "level completed! 🎉"
 msgstr ""
 
-#: Game
-msgid "Knives Out"
+#. §0: `axiom edgeCount_addEdge (G : Graph) (e : Edge) (h : e ∉ G.E) : edgeCount (addEdge G e) = edgeCount G + 1`
+#. §1: `edgeCount_addEdge`
+#. §2: `edgeCount`
+#: Game.Levels.GraphTheory.L03_Handshake
+msgid "§0\n"
+"\n"
+"§1 is states that adding an edge to a graph increases its §2 (number of edges in the graph) by 1."
 msgstr ""
 
-#: Game.Levels.GraphTheory.L02_AddEdge
-msgid ":)"
-msgstr ""
-
-#. §0: `def degree (G : Graph) (v : Nat) : Nat := (G.E.filter (fun e => incident v e)).card`
+#. §0: ```
+#. def degree (G : Graph) (v : Nat) : Nat := (G.E.filter (fun e => incident v e)).card
+#. ```
 #. §1: `degree G v`
 #. §2: `G`
 #. §3: `v`
@@ -40,36 +47,179 @@ msgid "§0\n"
 "§1 where §2 is a graph and §3 is a vertex gives you the number of edges which have §4 as one of their endpoints."
 msgstr ""
 
-#: Game
-msgid "Round 2 of Knives Out.\n"
-"\n"
-"A murderer hides among the suspects.\n"
-"To uncover the culprit, prove the graph-theoretic facts that unlock the clues."
+#: Game.Levels.GraphTheory.L02_AddEdge
+msgid ":)"
 msgstr ""
 
 #: Game.Levels.GraphTheory
 msgid "Graph Theory"
 msgstr ""
 
+#: Game.Levels.GraphTheory.L01_SingleEdge
+msgid "That was easy, wasn't it"
+msgstr ""
+
 #: GameServer.RpcHandlers
 msgid "intermediate goal solved! 🎉"
 msgstr ""
 
+#. §0: `have`
+#. §1: `a`
+#. §2: `have ha : a = 0`
+#. §3: `a = 0`
+#. §4: `ha : a = 0`
+#. §5: `have`
+#. §6: `a`
+#. §7: `b`
+#. §8: `have h2 : succ a = succ b → a = b := succ_inj a b`
+#. §9: `h2 : succ a = succ b → a = b`
+#. §10: `succ_inj a b`
+#. §11: `have h2 := succ_inj a b`
+#. §12: `h2 : succ a = succ b → a = b`
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "_credits: github.com/leanprover-community/NNG4_\n"
+"# Summary\n"
+"\n"
+"The §0 tactic can be used to add new hypotheses to a level, but of course\n"
+"you have to prove them.\n"
+"\n"
+"\n"
+"## Example\n"
+"\n"
+"The simplest usage is like this. If you have §1 in your context and you execute\n"
+"\n"
+"§2\n"
+"\n"
+"then you will get a new goal §3 to prove, and after you've proved\n"
+"it you will have a new hypothesis §4 in your original goal.\n"
+"\n"
+"## Example\n"
+"\n"
+"If you already have a proof of what you want to §5, you\n"
+"can just create it immediately. For example, if you have §6 and §7\n"
+"number objects, then\n"
+"\n"
+"§8\n"
+"\n"
+"will directly add a new hypothesis §9\n"
+"to the context, because you just supplied the proof of it (§10).\n"
+"\n"
+"## Example\n"
+"\n"
+"If you have a proof to hand, then you don't even need to state what you\n"
+"are proving. For example\n"
+"\n"
+"§11\n"
+"\n"
+"will add §12 as a hypothesis."
+msgstr ""
+
+#. §0: ```
+#. -- multiset of degrees of each vertex
+#. def DegreeContributions (G : Graph) := (Multiset.map (degree G) G.V.val)
+#. def EvenDegreeContributions (G : Graph) := (DegreeContributions G).filter (fun x => Even x)
+#. ```
+#. §1: `EvenDegreeContributions G`
+#. §2: `G`
+#. §3: `{ ∀ v ∈ G.V, (degree v) if Even (degree v) }`
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "§0\n"
+"§1 returns a multiset (a set with possibly repeated elements) containing\n"
+"the degrees of the vertices in the graph §2 whose degree is even, i.e. §3"
+msgstr ""
+
+#. §0: `theorem handshake_lemma (G : Graph) : sumDegrees G = 2 * edgeCount G`
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "The sum of the degrees of the vertices is twice the number of the edges in a graph.\n"
+"§0"
+msgstr ""
+
+#. §0: `induction`
+#. §1: ```
+#. induction G using graph_induction
+#. ... (base case)
+#. ... (inductive step)
+#. ```
+#: Game.Levels.GraphTheory.L03_Handshake
+msgid "Helps you induct on graphs, one edge at a time. Use with the §0 tactic as follows:\n"
+"## Usage:\n"
+"§1\n"
+"Immediately after the first line, the goal state will update to show the base case.\n"
+"As soon as the base case is proven, the goal state will update to show the inductive case.\n"
+"The induction assumption(s) will be usable as a named hypothesis (automatically named, visible above your goal state)\n"
+"to prove the inductive case."
+msgstr ""
+
+#. §0: ```
+#. -- multiset of degrees of each vertex
+#. def DegreeContributions (G : Graph) := (Multiset.map (degree G) G.V.val)
+#. ```
+#. §1: `DegreeContributions G`
+#. §2: `G`
+#. §3: `{ ∀ v ∈ G.V, degree v }`
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "§0\n"
+"§1 returns a multiset (a set with possibly repeated elements) containing\n"
+"the degrees of each vertex of the graph §2, i.e. §3"
+msgstr ""
+
+#. §0: ```
+#. -- multiset of degrees of each vertex
+#. def DegreeContributions (G : Graph) := (Multiset.map (degree G) G.V.val)
+#. def EvenDegreeContributions (G : Graph) := (DegreeContributions G).filter (fun x => Even x)
+#. -- number of nodes with even degree
+#. def evenDegreeCount (G : Graph) : Nat := (EvenDegreeContributions G).card
+#. ```
+#. §1: `evenDegreeCount G`
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "§0\n"
+"§1 gives you the number of vertices in the graph with even degree."
+msgstr ""
+
+#: Game
+msgid "# Knives Out.\n"
+"## _Round 2_\n"
+"\n"
+"It all ends here."
+msgstr ""
+
+#: Game
+#: Game
+msgid ";)"
+msgstr ""
+
+#: GameServer.RpcHandlers
+msgid "level completed with warnings… 🎭"
+msgstr ""
+
+#. §0: `Even a`
+#. §1: `∃ k, k + k = a`
+#. §2: `x`
+#. §3: `x + x = a`
+#. §4: `rw [Even]`
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "§0 is literally §1 (there exists some natural number §2 such that §3).\n"
+"\n"
+"Use §4 to expand it to this definition."
+msgstr ""
+
+#: Game
+msgid "Knives Out"
+msgstr ""
+
+#. §0: `change`
 #: Game.Levels.GraphTheory.L01_SingleEdge
-msgid "That was easy, wasn't it"
+msgid "Try §0ing it to something equivalent (...wait doesn't this just say 1 + 1 = 2?)"
 msgstr ""
 
 #: Game.Levels.GraphTheory.L03_Handshake
 msgid "Handshake Lemma"
 msgstr ""
 
-#. §0: `theorem handshake_lemma (G : Graph) : sumDegrees G = 2 * edgeCount G`
-#: Game.Levels.GraphTheory.L03_Handshake
-msgid "The sum of the degrees of the vertices is twice the number of the edges in a graph.\n"
-"§0"
-msgstr ""
-
-#. §0: `sumDegrees_addEdge (G : Graph) (e : Edge) (h : e ∉ G.E) : sumDegrees (addEdge G e)  = sumDegrees G + 2`
+#. §0: ```
+#. sumDegrees_addEdge (G : Graph) (e : Edge) (h : e ∉ G.E) : sumDegrees (addEdge G e)  = sumDegrees G + 2
+#. ```
 #: Game.Levels.GraphTheory.L02_AddEdge
 msgid "§0\n"
 "Adding one new edge increases the total degree sum by 2."
@@ -81,11 +231,30 @@ msgid "The total degree sum equals twice the number of edges.\n"
 "Prove it by induction on the number of edges."
 msgstr ""
 
-#. §0: `def sumDegrees (G : Graph) : Nat := G.V.sum (fun v => degree G v)`
+#. §0: ```
+#. -- multiset of degrees of each vertex
+#. def DegreeContributions (G : Graph) := (Multiset.map (degree G) G.V.val)
+#. def OddDegreeContributions (G : Graph) := (DegreeContributions G).filter (fun x => Odd x)
+#. -- number of nodes with odd degree
+#. def oddDegreeCount (G : Graph) : Nat := (OddDegreeContributions G).card
+#. ```
+#. §1: `oddDegreeCount G`
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "§0\n"
+"§1 gives you the number of vertices in the graph with odd degree."
+msgstr ""
+
+#. §0: ```
+#. def sumDegrees (G : Graph) : Nat := G.V.sum (fun v => degree G v)
+#. ```
 #. §1: `degree`
 #: Game.Levels.GraphTheory.L02_AddEdge
 msgid "§0\n"
 "The sum of the degrees of all the vertices in the graph. See definition of §1 for more."
+msgstr ""
+
+#: Game.Levels.GraphTheory.L02_AddEdge
+msgid "Check your unlocked theorems"
 msgstr ""
 
 #. §0: ```
@@ -108,15 +277,14 @@ msgstr ""
 msgid "Adding One Edge"
 msgstr ""
 
-#: Game.Levels.GraphTheory.L01_SingleEdge
-msgid "An edge contributes 1 to the degree of each endpoint.\n"
-"\n"
-"How much does it contribute in total?"
-msgstr ""
-
 #: Game.Levels.GraphTheory.L02_AddEdge
 msgid "We know what happens to the total degree sum when we add an edge.\n"
 "Use the helper lemma."
+msgstr ""
+
+#. §0: `edgeCount G`
+#: Game.Levels.GraphTheory.L03_Handshake
+msgid "§0 gives you the number of edges in graph G."
 msgstr ""
 
 #: Game.Levels.GraphTheory
@@ -124,6 +292,50 @@ msgid "Four worlds have collapsed into one.\n"
 "\n"
 "Every theorem you prove reveals another clue in the murder mystery.\n"
 "Work through graph theory from the Handshake Lemma all the way to Euler's theorem."
+msgstr ""
+
+#. §0: ```
+#. -- if the sum of a sequence of numbers is even, the number of odd numbers in the sequence must be even
+#. axiom even_sum_even_odds (A : Multiset Nat) (hA : Even (A.sum)) : Even (A.filter (fun a => Odd a)).card
+#. ```
+#. §1: `even_sum_even_odds A hA`
+#. §2: `A`
+#. §3: `∑ (a ∈ A)`
+#. §4: `A`
+#. §5: `hA`
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "§0\n"
+"§1 is the proof that the total number of odd numbers in §2 must be even if\n"
+"§3 is even.  The hypothesis that the sum of the elements of §4 is even is §5."
+msgstr ""
+
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "The Handshake Lemma tells us that the sum of all degrees is even.\n"
+"\n"
+"Use this fact to show that the number of odd-degree vertices is even."
+msgstr ""
+
+#. §0: `one_edge_graph`
+#. §1: ```
+#. def one_edge_graph : Graph :=
+#. {
+#.   V := { 1, 2 },        // vertices
+#.   E := { Edge.mk 1 2 }  // edges
+#. }
+#. ```
+#: Game.Levels.GraphTheory.L01_SingleEdge
+msgid "An edge contributes 1 to the degree of each endpoint.\n"
+"\n"
+"How much does it contribute in total?\n"
+"\n"
+"§0 is defined as:\n"
+"§1\n"
+"\n"
+"It is a graph with 2 vertices (labelled 1 and 2 respectively) and a single edge between them."
+msgstr ""
+
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "Odd-Degree Vertices Come In Pairs"
 msgstr ""
 
 #: Game.Levels.GraphTheory.L01_SingleEdge
@@ -146,9 +358,4 @@ msgid "§0\n"
 "(each edge represented by an ordered pair §1 where §2. See the definition of Edge for more info)\n"
 "\n"
 "For a graph §3, you can access its vertex set so: §4, and its edge set so: §5."
-msgstr ""
-
-#: Game
-#: Game
-msgid ";)"
 msgstr ""

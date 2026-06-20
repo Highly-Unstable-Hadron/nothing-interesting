@@ -20,18 +20,22 @@ Statement
   sumDegrees (addEdge G e)
     =
   sumDegrees G + 2 := by
-
+  Hint "Check your unlocked theorems"
   rw [sumDegrees_addEdge G e h]
 
 Conclusion ":)"
 
 /--
-`def degree (G : Graph) (v : Nat) : Nat := (G.E.filter (fun e => incident v e)).card`
+```
+def degree (G : Graph) (v : Nat) : Nat := (G.E.filter (fun e => incident v e)).card
+```
 `degree G v` where `G` is a graph and `v` is a vertex gives you the number of edges which have `v` as one of their endpoints.
 -/
 DefinitionDoc Game.Common.GraphDefs.degree as "degree"
 /--
-`def sumDegrees (G : Graph) : Nat := G.V.sum (fun v => degree G v)`
+```
+def sumDegrees (G : Graph) : Nat := G.V.sum (fun v => degree G v)
+```
 The sum of the degrees of all the vertices in the graph. See definition of `degree` for more.
 -/
 DefinitionDoc Game.Common.GraphDefs.sumDegrees as "sumDegrees"
@@ -59,7 +63,9 @@ Edges are ordered pairs of natural numbers `(fst, snd)` where `fst != snd`.
 -/
 DefinitionDoc Game.Common.GraphDefs.Edge as "Edge"
 /--
-`sumDegrees_addEdge (G : Graph) (e : Edge) (h : e ∉ G.E) : sumDegrees (addEdge G e)  = sumDegrees G + 2`
+```
+sumDegrees_addEdge (G : Graph) (e : Edge) (h : e ∉ G.E) : sumDegrees (addEdge G e)  = sumDegrees G + 2
+```
 Adding one new edge increases the total degree sum by 2.
 -/
 TheoremDoc GraphTheoryGame.sumDegrees_addEdge as "sumDegrees_addEdge" in "GraphTheory"

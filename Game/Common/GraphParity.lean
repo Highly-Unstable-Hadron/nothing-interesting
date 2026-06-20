@@ -7,11 +7,21 @@ namespace GraphTheoryGame
 The set of vertices of odd degree.
 Used in Level 4.
 -/
-def OddDegreeVertices (G : Graph) : Finset Nat :=
-  G.V.filter (fun v => Odd (degree G v))
+-- def OddDegreeVertices (G : Graph) : Finset Nat := G.V.filter (fun v => Odd (degree G v))
+-- def EvenDegreeVertices (G : Graph) : Finset Nat := G.V.filter (fun v => Even (degree G v))
 
-def oddDegreeCount (G : Graph) : Nat :=
-  (OddDegreeVertices G).card
+-- multiset of degrees of each vertex
+def DegreeContributions (G : Graph) := (Multiset.map (degree G) G.V.val)
+def OddDegreeContributions (G : Graph) := (DegreeContributions G).filter (fun x => Odd x)
+def EvenDegreeContributions (G : Graph) := (DegreeContributions G).filter (fun x => Even x)
+
+-- number of nodes with odd degree
+def oddDegreeCount (G : Graph) : Nat := (OddDegreeContributions G).card
+-- number of nodes with even degree
+def evenDegreeCount (G : Graph) : Nat := (EvenDegreeContributions G).card
+
+-- if the sum of a sequence of numbers is even, the number of odd numbers in the sequence must be even
+axiom even_sum_even_odds (A : Multiset Nat) (hA : Even (A.sum)) : Even (A.filter (fun a => Odd a)).card
 
 /-
   --------------------------------------------------
@@ -113,5 +123,23 @@ axiom edgeCount_addEdge
   edgeCount (addEdge G e)
     =
   edgeCount G + 1
+
+theorem handshake_lemma (G : Graph) :
+  sumDegrees G
+    =
+  2 * edgeCount G := by
+  induction G using graph_induction with
+  | h0 =>
+      rw [sumDegrees, emptyGraph, edgeCount]
+      change 0 = 2 * 0
+      simp
+
+
+  | hstep G e hnotin ih =>
+      rw [sumDegrees_addEdge, ih]
+      rw [edgeCount_addEdge]
+      ring_nf
+      exact hnotin
+      exact hnotin
 
 end GraphTheoryGame

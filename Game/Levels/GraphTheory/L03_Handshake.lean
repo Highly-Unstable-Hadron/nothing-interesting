@@ -14,7 +14,7 @@ The total degree sum equals twice the number of edges.
 Prove it by induction on the number of edges.
 "
 
-Statement handshake_lemma
+Statement
   (G : Graph) :
   sumDegrees G
     =
@@ -47,25 +47,19 @@ TheoremDoc GraphTheoryGame.edgeCount_addEdge as "edgeCount_addEdge" in "GraphThe
 Helps you induct on graphs, one edge at a time. Use with the `induction` tactic as follows:
 ## Usage:
 ```
-induction G using graph_induction with h1 h2 ..
+induction G using graph_induction
 ... (base case)
-
 ... (inductive step)
 ```
 Immediately after the first line, the goal state will update to show the base case.
 As soon as the base case is proven, the goal state will update to show the inductive case.
-The induction assumption(s) will be usable as a named hypothesis (a name you provided in `h1 h2 ..`)
+The induction assumption(s) will be usable as a named hypothesis (automatically named, visible above your goal state)
 to prove the inductive case.
 -/
 TheoremDoc GraphTheoryGame.graph_induction as "graph_induction" in "GraphTheory"
-/--
-The sum of the degrees of the vertices is twice the number of the edges in a graph.
-`theorem handshake_lemma (G : Graph) : sumDegrees G = 2 * edgeCount G`
--/
-TheoremDoc GraphTheoryGame.handshake_lemma as "handshake_lemma" in "GraphTheory"
 
 NewTactic ring_nf intro induction
-NewTheorem GraphTheoryGame.handshake_lemma GraphTheoryGame.graph_induction GraphTheoryGame.edgeCount_addEdge
+NewTheorem GraphTheoryGame.graph_induction GraphTheoryGame.edgeCount_addEdge
 NewDefinition Game.Common.GraphDefs.edgeCount
 
 end GraphTheoryGame

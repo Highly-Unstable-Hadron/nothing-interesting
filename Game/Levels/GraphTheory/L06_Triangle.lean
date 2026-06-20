@@ -23,6 +23,6 @@ Statement :
 
   -- exact triangle_not_colorable c hc
 
-NewTactic contradiction
+NewTactic contradiction obtain
 
 end GraphTheoryGame
