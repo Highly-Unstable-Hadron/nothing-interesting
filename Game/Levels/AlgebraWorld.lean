@@ -1,4 +1,4 @@
-import Game.Levels.ALgebraWorld.L01_PascalRule
+import Game.Levels.AlgebraWorld.L01_PascalRule
 import Game.Levels.AlgebraWorld.L02_Symmetry
 import Game.Levels.AlgebraWorld.L03_RowSum
 
