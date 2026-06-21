@@ -36,6 +36,12 @@ DefinitionDoc Game.Common.GraphDefs.edgeCount as "edgeCount"
 `axiom edgeCount_addEdge (G : Graph) (e : Edge) (h : e ∉ G.E) : edgeCount (addEdge G e) = edgeCount G + 1`
 
 `edgeCount_addEdge` is states that adding an edge to a graph increases its `edgeCount` (number of edges in the graph) by 1.
+
+## Important:
+Doing just `rw [edgeCount_addEdge]` forces you to prove `e ∉ G.E` later as that assumption is an argument
+for `edgeCount_addEdge`. If you already have `h : e ∉ G.E` as a hypothesis, you can directly try
+`rw [edgeCount_addEdge G e h]`. Providing all the arguments here means you don't have prove
+separately `e ∉ G.E` later.
 -/
 TheoremDoc GraphTheoryGame.edgeCount_addEdge as "edgeCount_addEdge" in "GraphTheory"
 /--

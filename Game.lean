@@ -1,4 +1,5 @@
 import Game.Levels.GraphTheory
+import Game.Levels.AlgebraWorld
 
 -- Game "KnivesOut"
 
@@ -11,6 +12,8 @@ Introduction
 
 It all ends here.
 "
+
+-- Dependency Algebra -> GraphTheory
 
 Info "
 ;)

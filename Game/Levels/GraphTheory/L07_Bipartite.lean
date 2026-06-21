@@ -29,7 +29,7 @@ axiom oddCycle_opposite_color (hc : ValidColoring G c) (hC : OddCycle G)
   : c hC.start ≠ c hC.finish
 ```
 -/
-TheoremDoc GraphTheoryGame.oddCycle_opposite_color as "oddCycle_opposite_color" in "GraphTheoryGame"
+TheoremDoc GraphTheoryGame.oddCycle_opposite_color as "oddCycle_opposite_color" in "GraphTheory"
 /--
 `Bipartite G` is the proposition that a graph is two-colourable, i.e.
 ```

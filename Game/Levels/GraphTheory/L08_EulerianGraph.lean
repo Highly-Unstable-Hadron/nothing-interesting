@@ -17,10 +17,7 @@ In an Eulerian graph, every vertex has even degree.
 Statement
   (G : Graph) :
   Eulerian G →
-  AllEvenDegrees G := by
-
-  intro h
-
-  exact eulerian_implies_even G h
+  oddDegreeCount G = 0 := by
+  sorry
 
 end GraphTheoryGame

@@ -1,0 +1,10 @@
+import Game.Levels.ALgebraWorld.L01_PascalRule
+import Game.Levels.AlgebraWorld.L02_Symmetry
+import Game.Levels.AlgebraWorld.L03_RowSum
+
+World "Algebra"
+Title "Algebra World"
+
+Introduction "
+hee hee ;)
+"
