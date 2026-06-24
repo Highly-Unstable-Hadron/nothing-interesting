@@ -1,6 +1,5 @@
 import Game.Metadata
-import Game.Common.AlgebraDefs
--- import Game.Common.AlgebraLemmas
+-- import Game.Common.AlgebraDefs
 
 World "Algebra"
 
@@ -72,9 +71,12 @@ NewTheorem Algebra.choose_n0 Algebra.choose_n1 Algebra.choose_k_gt_n
 Introduction "
 Prove that choose n n = 1 for all n.
 Use the `induction` tactic.
-If you need to solve any trivial inequalities, like, say k - 1 < k, use the `linarith` tactic.
+If you need to solve any trivial inequalities, like, say `0 < 1` or `k - 1 < k`, use the `linarith` tactic.
 "
 
+/--
+`choose n n = 1` for all `n`
+-/
 Statement choose_nn (n : Nat) : choose n n = 1 := by
   induction n with
   | zero =>

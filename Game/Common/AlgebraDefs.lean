@@ -12,25 +12,12 @@ This will be locked after Level 2.
 -/
 def choose (n k : Nat) : Nat := Nat.choose n k
 
--- def factorial := Nat.factorial
-
--- axiom chooseFact (n k : Nat) : choose n k = factorial n / ((factorial k) * factorial (n - k))
-
 /--
 Sum of all entries in row `n`
 of Pascal's triangle.
 -/
 def rowSum (n : Nat) : Nat :=
   ∑ k ∈ Finset.range (n + 1), choose n k
-
-/--
-Diagonal sum used in the
-hockey-stick identity.
--/
-def hockeySum (n k : Nat) : Nat :=
-  ∑ i ∈ Finset.range (n + 1), choose i k
-
--- axiom factorial_succ (n : Nat) : factorial (n + 1) = (n + 1) * factorial n
 
 axiom pascal_rule  (n k : Nat) : choose (n + 1) (k + 1) = choose n k + choose n (k + 1)
 
@@ -42,8 +29,36 @@ axiom choose_k_gt_n (h : k > n) : choose n k = 0
 
 axiom rowSum_step : rowSum (n+1) = rowSum n * 2
 
+/--
+Hockey stick theorem
+-/
+
 def diagonalSum (n k : Nat) : Nat :=
   ∑ i ∈ Finset.range (k + 1),
-    choose (n + i) i
+    choose (n + i) n
+
+axiom sum_extension (k : Nat) (f : Nat -> Nat) :
+  ∑ i ∈ Finset.range (k + 1), f i
+    = f k +
+  ∑ i ∈ Finset.range k, f i
+
+/--
+Vandermonde's Identity
+-/
+
+def vandermondeSum (m n r : Nat) : Nat :=
+  ∑ i ∈ Finset.range (r + 1),
+    choose m i * choose n (r - i)
+
+axiom vandermonde_step
+  (m n r : Nat) :
+  vandermondeSum m (n + 1) (r + 1)
+    =
+  vandermondeSum m n r
+    +
+  choose (m + n) (r + 1)
+
+axiom sub_add_cancel (a b : Nat) : a - b + b = a
+axiom add_sub_add_cancel (a b c : Nat) : a + (b - c) + c = a + b
 
 end Algebra

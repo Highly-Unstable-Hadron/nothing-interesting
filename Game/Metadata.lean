@@ -4,6 +4,7 @@ import GameServer.Commands
 import Game.Common.GraphDefs
 import Game.Common.GraphParity
 import Game.Common.GraphColouring
+import Game.Common.AlgebraDefs
 
 /-! Use this file to add things that should be available in all levels.
 
