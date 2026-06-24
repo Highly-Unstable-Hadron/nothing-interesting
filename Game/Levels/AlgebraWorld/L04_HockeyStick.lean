@@ -62,6 +62,7 @@ edge. Used in the theorem `hockey_stick`.
 -/
 DefinitionDoc Game.Common.AlgebraDefs.diagonalSum as "diagonalSum" in "Algebra"
 
+axiom choose_nn : choose n n = 1  -- level 2
 /--
 The hockey-stick theorem is a famous mathematical rule in combinatorics. It states that the sum of
 the numbers along any diagonal in Pascal's triangle, starting from any element on the outer edge,

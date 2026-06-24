@@ -78,7 +78,6 @@ Another nice but oddly specific helper theorem for algebraic simplification.
 -/
 TheoremDoc Algebra.add_sub_add_cancel as "add_sub_add_cancel" in "Misc"
 
-axiom choose_nn : choose n n = 1  -- level 2
 /--
 Vandermonde's Identity is a fundamental combinatorial formula expressing that the sum of products of
 binomial coefficients equals a single binomial coefficient. For non-negative integers m, n, and r
