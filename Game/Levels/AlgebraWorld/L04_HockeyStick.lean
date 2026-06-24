@@ -76,7 +76,7 @@ Statement hockey_stick
   | zero =>
     rw [choose_nn]
     change choose n n = 1
-    exact choose_nn
+    exact choose_nn n
   | succ k a =>
     rw [sum_extension (k + 1) (fun i => choose (n + i) n), a, pascal_rule (n + (k + 1)) n]
     rfl
