@@ -162,7 +162,7 @@ It looks like this:
   1---2
 ```
 -/
-DefinitionDoc Game.Common.GraphColouring.triangleGraph as "triangleGraph"
+DefinitionDoc Game.Common.GraphColouring.triangleGraph as "triangleGraph" in "GraphTheory"
 /--
 Proofs that the edges e01, e12 and e20 are a part of the graph
 ```
@@ -171,7 +171,7 @@ axiom triangle_edge_12 : e12 ∈ triangleGraph.E
 axiom triangle_edge_20 : e20 ∈ triangleGraph.E
 ```
 -/
-DefinitionDoc Game.Common.GraphColouring.triangle_edge_01 as "triangle_edge_01"
+DefinitionDoc Game.Common.GraphColouring.triangle_edge_01 as "triangle_edge_01" in "GraphTheory"
 /--
 Proofs that the edges e01, e12 and e20 are a part of the graph
 ```
@@ -180,7 +180,7 @@ axiom triangle_edge_12 : e12 ∈ triangleGraph.E
 axiom triangle_edge_20 : e20 ∈ triangleGraph.E
 ```
 -/
-DefinitionDoc Game.Common.GraphColouring.triangle_edge_12 as "triangle_edge_12"
+DefinitionDoc Game.Common.GraphColouring.triangle_edge_12 as "triangle_edge_12" in "GraphTheory"
 /--
 Proofs that the edges e01, e12 and e20 are a part of the graph
 ```
@@ -189,7 +189,7 @@ axiom triangle_edge_12 : e12 ∈ triangleGraph.E
 axiom triangle_edge_20 : e20 ∈ triangleGraph.E
 ```
 -/
-DefinitionDoc Game.Common.GraphColouring.triangle_edge_20 as "triangle_edge_20"
+DefinitionDoc Game.Common.GraphColouring.triangle_edge_20 as "triangle_edge_20" in "GraphTheory"
 
 NewTactic contradiction symm
 NewTheorem GraphTheoryGame.validColoring_adjacent GraphTheoryGame.neq_blue GraphTheoryGame.neq_red

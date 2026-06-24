@@ -31,7 +31,7 @@ Statement
 /--
 `edgeCount G` gives you the number of edges in graph G.
 -/
-DefinitionDoc Game.Common.GraphDefs.edgeCount as "edgeCount"
+DefinitionDoc Game.Common.GraphDefs.edgeCount as "edgeCount" in "GraphTheory"
 /--
 `axiom edgeCount_addEdge (G : Graph) (e : Edge) (h : e ∉ G.E) : edgeCount (addEdge G e) = edgeCount G + 1`
 

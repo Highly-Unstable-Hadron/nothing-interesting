@@ -3,7 +3,7 @@ import Mathlib.Data.Nat.Choose.Basic
 import Mathlib
 -- import Mathlib.Algebra.BigOperators.Basic
 
-namespace AlgebraWorld
+namespace Algebra
 
 /--
 Internal definition.
@@ -33,8 +33,17 @@ def hockeySum (n k : Nat) : Nat :=
 -- axiom factorial_succ (n : Nat) : factorial (n + 1) = (n + 1) * factorial n
 
 axiom pascal_rule  (n k : Nat) : choose (n + 1) (k + 1) = choose n k + choose n (k + 1)
-axiom choose_00 : choose 0 0 = 1
-axiom choose_10 : choose 1 0 = 1
-axiom choose_11 : choose 1 1 = 1
 
-end AlgebraWorld
+axiom symmetry : choose n k = choose n (n - k)
+
+axiom choose_n0 : choose n 0 = 1
+axiom choose_n1 (h : n ≠ 0) : choose n 1 = n
+axiom choose_k_gt_n (h : k > n) : choose n k = 0
+
+axiom rowSum_step : rowSum (n+1) = rowSum n * 2
+
+def diagonalSum (n k : Nat) : Nat :=
+  ∑ i ∈ Finset.range (k + 1),
+    choose (n + i) i
+
+end Algebra

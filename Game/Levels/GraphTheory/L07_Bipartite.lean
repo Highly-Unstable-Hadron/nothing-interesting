@@ -38,7 +38,7 @@ def Bipartite (G : Graph) : Prop :=
 ```
 See the definition of `ValidColoring` and `Color` for more. Use `rw [Bipartite]` to expand this definition.
 -/
-DefinitionDoc Game.Common.GraphColouring.Bipartite as "Bipartite"
+DefinitionDoc Game.Common.GraphColouring.Bipartite as "Bipartite" in "GraphTheory"
 /--
 Defines a cycle of odd-length in a graph.
 
@@ -53,11 +53,11 @@ structure OddCycle (G : Graph) where
 forms a cycle. That it is a cycle of odd-length is not explicitly encoded in this definition, see
 theorem `oddCycle_opposite_color` for that.
 -/
-DefinitionDoc Game.Common.GraphColouring.OddCycle as "OddCycle"
+DefinitionDoc Game.Common.GraphColouring.OddCycle as "OddCycle" in "GraphTheory"
 
 NewDefinition Game.Common.GraphColouring.Bipartite Game.Common.GraphColouring.OddCycle
 NewTheorem GraphTheoryGame.oddCycle_opposite_color
 
-Conclusion "Time for the boss levels"
+Conclusion "Nice!!"
 
 end GraphTheoryGame

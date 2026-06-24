@@ -63,7 +63,7 @@ def ValidColoring
 A valid colouring of a graph `G` is one where each node is assigned some colour such that no two
 adjacent nodes have the same colour. Use `rw [ValidColoring]` to expand its definition in your proofs.
 -/
-DefinitionDoc Game.Common.GraphColouring.ValidColoring as "ValidColoring"
+DefinitionDoc Game.Common.GraphColouring.ValidColoring as "ValidColoring" in "GraphTheory"
 /--
 A hard-coded square graph with 4 vertices:
 ```
@@ -77,7 +77,7 @@ def squareGraph : Graph :=
   E := {e01, e12, e23, e30} } --edges
 ```
 -/
-DefinitionDoc Game.Common.GraphColouring.squareGraph as "squareGraph"
+DefinitionDoc Game.Common.GraphColouring.squareGraph as "squareGraph" in "GraphTheory"
 /--
 ```
 inductive Color where
@@ -88,11 +88,11 @@ The possible colours a node could be assigned. `Color` here models a bipartite g
 where each node can receive one of 2 possible colours. There are additional constraints on bipartite graphs
 modelled in `ValidColoring`. To reference the possible colours, use `Color.red` or `Color.blue`.
 -/
-DefinitionDoc Game.Common.GraphColouring.Color as "Color"
+DefinitionDoc Game.Common.GraphColouring.Color as "Color" in "GraphTheory"
 
-DefinitionDoc Or.inl as "inl"
+DefinitionDoc Or.inl as "inl" in "Misc"
 
-DefinitionDoc Or.inr as "inr"
+DefinitionDoc Or.inr as "inr" in "Misc"
 
 NewTactic cases «let»
 NewDefinition Game.Common.GraphColouring.ValidColoring Game.Common.GraphColouring.squareGraph

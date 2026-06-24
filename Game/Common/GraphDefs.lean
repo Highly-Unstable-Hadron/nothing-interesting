@@ -12,6 +12,7 @@ structure Graph where
   V : Finset Nat
   E : Finset Edge
 
+@[simp]
 def incident (v : Nat) (e : Edge) : Prop :=
   e.fst = v ∨ e.snd = v
 
@@ -20,12 +21,15 @@ instance (v : Nat) : DecidablePred (incident v) := by
   unfold incident
   infer_instance
 
+@[simp]
 def degree (G : Graph) (v : Nat) : Nat :=
   (G.E.filter (fun e => incident v e)).card
 
+@[simp]
 def sumDegrees (G : Graph) : Nat :=
   G.V.sum (fun v => degree G v)
 
+@[simp]
 def edgeCount (G : Graph) : Nat :=
   G.E.card
 

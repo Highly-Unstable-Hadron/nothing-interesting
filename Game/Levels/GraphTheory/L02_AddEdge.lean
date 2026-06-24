@@ -27,14 +27,14 @@ def degree (G : Graph) (v : Nat) : Nat := (G.E.filter (fun e => incident v e)).c
 ```
 `degree G v` where `G` is a graph and `v` is a vertex gives you the number of edges which have `v` as one of their endpoints.
 -/
-DefinitionDoc Game.Common.GraphDefs.degree as "degree"
+DefinitionDoc Game.Common.GraphDefs.degree as "degree" in "GraphTheory"
 /--
 ```
 def sumDegrees (G : Graph) : Nat := G.V.sum (fun v => degree G v)
 ```
 The sum of the degrees of all the vertices in the graph. See definition of `degree` for more.
 -/
-DefinitionDoc Game.Common.GraphDefs.sumDegrees as "sumDegrees"
+DefinitionDoc Game.Common.GraphDefs.sumDegrees as "sumDegrees" in "GraphTheory"
 /--
 ```
 structure Graph where
@@ -46,7 +46,7 @@ A graph is a set of vertices V (each vertex represented as a natural number) and
 
 For a graph `G`, you can access its vertex set so: `G.V`, and its edge set so: `G.E`.
 -/
-DefinitionDoc Game.Common.GraphDefs.Graph as "Graph"
+DefinitionDoc Game.Common.GraphDefs.Graph as "Graph"  in "GraphTheory"
 /--
 ```
 structure Edge where
@@ -57,7 +57,7 @@ structure Edge where
 Edges are ordered pairs of natural numbers `(fst, snd)` where `fst != snd`.
 `fst` indicates the vertex the edge arises out of and `snd` indicates the vertex the edge goes into.
 -/
-DefinitionDoc Game.Common.GraphDefs.Edge as "Edge"
+DefinitionDoc Game.Common.GraphDefs.Edge as "Edge" in "GraphTheory"
 /--
 ```
 sumDegrees_addEdge (G : Graph) (e : Edge) (h : e ∉ G.E) : sumDegrees (addEdge G e)  = sumDegrees G + 2

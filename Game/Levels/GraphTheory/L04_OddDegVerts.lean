@@ -72,13 +72,13 @@ NewTactic «have» use
 
 Use `rw [Even]` to expand it to this definition.
 -/
-DefinitionDoc Mathlib.Algebra.Group.Even as "Even"
+DefinitionDoc Mathlib.Algebra.Group.Even as "Even" in "Misc"
 /--
 `Odd a` is literally `∃ k, 2*k + 1 = a` (there exists some natural number `k` such that `2*k + 1 = a`).
 
 Use `rw [Odd]` to expand it to this definition.
 -/
-DefinitionDoc Mathlib.Algebra.Group.Odd as "Odd"
+DefinitionDoc Mathlib.Algebra.Group.Odd as "Odd" in "Misc"
 /--
 ```
 -- multiset of degrees of each vertex
@@ -89,7 +89,7 @@ def oddDegreeCount (G : Graph) : Nat := (OddDegreeContributions G).card
 ```
 `oddDegreeCount G` gives you the number of vertices in the graph with odd degree.
 -/
-DefinitionDoc Game.Common.GraphParity.oddDegreeCount as "oddDegreeCount"
+DefinitionDoc Game.Common.GraphParity.oddDegreeCount as "oddDegreeCount" in "GraphTheory"
 /--
 ```
 -- multiset of degrees of each vertex
@@ -100,7 +100,7 @@ def evenDegreeCount (G : Graph) : Nat := (EvenDegreeContributions G).card
 ```
 `evenDegreeCount G` gives you the number of vertices in the graph with even degree.
 -/
-DefinitionDoc Game.Common.GraphParity.evenDegreeCount as "evenDegreeCount"
+DefinitionDoc Game.Common.GraphParity.evenDegreeCount as "evenDegreeCount" in "GraphTheory"
 /--
 ```
 -- multiset of degrees of each vertex
@@ -110,7 +110,7 @@ def EvenDegreeContributions (G : Graph) := (DegreeContributions G).filter (fun x
 `EvenDegreeContributions G` returns a multiset (a set with possibly repeated elements) containing
 the degrees of the vertices in the graph `G` whose degree is even, i.e. `{ ∀ v ∈ G.V, (degree v) if Even (degree v) }`
 -/
-DefinitionDoc Game.Common.GraphParity.EvenDegreeContributions as "EvenDegreeContributions"
+DefinitionDoc Game.Common.GraphParity.EvenDegreeContributions as "EvenDegreeContributions" in "GraphTheory"
 /--
 ```
 -- multiset of degrees of each vertex
@@ -120,7 +120,7 @@ def OddDegreeContributions (G : Graph) := (DegreeContributions G).filter (fun x 
 `OddDegreeContributions G` returns a multiset (a set with possibly repeated elements) containing
 the degrees of the vertices in the graph `G` whose degree is odd, i.e. `{ ∀ v ∈ G.V, (degree v) if Odd (degree v) }`
 -/
-DefinitionDoc Game.Common.GraphParity.OddDegreeContributions as "OddDegreeContributions"
+DefinitionDoc Game.Common.GraphParity.OddDegreeContributions as "OddDegreeContributions" in "GraphTheory"
 /--
 ```
 -- multiset of degrees of each vertex
@@ -129,7 +129,7 @@ def DegreeContributions (G : Graph) := (Multiset.map (degree G) G.V.val)
 `DegreeContributions G` returns a multiset (a set with possibly repeated elements) containing
 the degrees of each vertex of the graph `G`, i.e. `{ ∀ v ∈ G.V, degree v }`
 -/
-DefinitionDoc Game.Common.GraphParity.DegreeContributions as "DegreeContributions"
+DefinitionDoc Game.Common.GraphParity.DegreeContributions as "DegreeContributions" in "GraphTheory"
 /--
 ```
 -- if the sum of a sequence of numbers is even, the number of odd numbers in the sequence must be even
@@ -138,7 +138,7 @@ axiom even_sum_even_odds (A : Multiset Nat) (hA : Even (A.sum)) : Even (A.filter
 `even_sum_even_odds A hA` is the proof that the total number of odd numbers in `A` must be even if
 `∑ (a ∈ A)` is even.  The hypothesis that the sum of the elements of `A` is even is `hA`.
 -/
-TheoremDoc GraphTheoryGame.even_sum_even_odds as "even_sum_even_odds" in "GraphTheory"
+TheoremDoc GraphTheoryGame.even_sum_even_odds as "even_sum_even_odds" in "Misc"
 /--
 The sum of the degrees of the vertices is twice the number of the edges in a graph.
 `theorem handshake_lemma (G : Graph) : sumDegrees G = 2 * edgeCount G`

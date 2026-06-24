@@ -7,7 +7,7 @@ Level 1
 
 Title "Pascal's Rule"
 
-namespace AlgebraWorld
+namespace Algebra
 
 Introduction
 "
@@ -58,14 +58,14 @@ choose (n+1) (k+1) = choose n k + choose n (k+1)
 
 Every entry is the sum of the two entries above it.
 -/
-TheoremDoc AlgebraWorld.pascal_rule as "pascal_rule" in "Algebra"
+TheoremDoc Algebra.pascal_rule as "pascal_rule" in "Algebra"
 
 Statement
   (n k : Nat) : choose (n + 1) (k + 1) = choose n k + choose n (k + 1) := by
   exact pascal_rule n k
 
-NewTheorem AlgebraWorld.pascal_rule
+NewTheorem Algebra.pascal_rule
 NewDefinition Game.Common.AlgebraDefs.choose
 NewTactic rw nth_rewrite simp exact
 
-end AlgebraWorld
+end Algebra

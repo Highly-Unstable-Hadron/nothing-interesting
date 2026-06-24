@@ -8,7 +8,7 @@ Level 3
 
 Title "A Row of Powers"
 
-namespace AlgebraWorld
+namespace Algebra
 
 Introduction
 "
@@ -26,22 +26,34 @@ rowSum n =
 Σ choose n k
 ```
 -/
-DefinitionDoc Game.Common.AlgebraDefs.rowSum as "rowSum"
+DefinitionDoc Game.Common.AlgebraDefs.rowSum as "rowSum" in "Algebra"
+/--
+```
+axiom rowSum_step : rowSum (n+1)
+    =
+  rowSum n * 2
+```
+Sum of the (n + 1)-th row = 2 * (sum of the n-th row)
+-/
+TheoremDoc Algebra.rowSum_step as "rowSum_step" in "Algebra"
 
 /--
-.
+Sum of the elements of the n-th row of the Pascal's triangle = 2^n/
 -/
 Statement rowSumClosedForm (n : Nat) : rowSum n = 2 ^ n := by
 
-  induction n with
+induction n with
   | zero =>
-      sorry
-
+      change 1 = 1
+      rfl
   | succ n ih =>
-      sorry
+      rw [rowSum_step, ih]
+      change 2 ^ (n + 1) = 2 ^ (n + 1)
+      rfl
 
--- NewTactic induction
+
+NewTactic rfl change
 NewDefinition Game.Common.AlgebraDefs.rowSum
--- NewTheorem AlgebraWorld.choose_00 AlgebraWorld.choose_10 AlgebraWorld.choose_11
+NewTheorem Algebra.rowSum_step
 
-end AlgebraWorld
+end Algebra

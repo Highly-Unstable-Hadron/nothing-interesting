@@ -28,6 +28,7 @@ It is a graph with 2 vertices (labelled 1 and 2 respectively) and a single edge 
 
 def h : 1 ≠ 2 := by simp
 
+@[simp]
 def one_edge_graph : Graph :=
 {
   V := { 1, 2 },
