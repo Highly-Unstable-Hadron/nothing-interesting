@@ -15,9 +15,6 @@ binomial coefficients equals a single binomial coefficient. For non-negative int
 where r ≤ m + n, the identity is
 ∑ (k = 0 till k = r) (choose m k) * (choose n (r - k)) = choose (m + n) r
 
-The `n + 1` in the statement of `vandermonde_identity` is not mathematically necessary but it makes
-proving it a whole lot easier.
-
 # induction generalizing
 To prove it, you will need a new tool in your belt: `induction <x> generalizing <y> with ..`
 It's an extension of the `induction` tactic that allows you to induct better on functions with multiple
@@ -78,34 +75,25 @@ Another nice but oddly specific helper theorem for algebraic simplification.
 -/
 TheoremDoc Algebra.add_sub_add_cancel as "add_sub_add_cancel" in "Misc"
 
-/--
-Vandermonde's Identity is a fundamental combinatorial formula expressing that the sum of products of
-binomial coefficients equals a single binomial coefficient. For non-negative integers m, n, and r
-where r ≤ m + n, the identity is
-∑ (k = 0 till k = r) (choose m k) * (choose n (r - k)) = choose (m + n) r
-
-```
-theorem vandermonde_identity (m n r : Nat) :
-  vandermondeSum m (n+1) r
+Statement vandermonde (m n r : Nat) :
+  vandermondeSum m n r
     =
-  choose (m + n + 1) r
-```
-The `n + 1` is not mathematically necessary but it makes proving it a whole lot easier.
--/
-Statement vandermonde_identity (m n r : Nat) :
-  vandermondeSum m (n+1) r
-    =
-  choose (m + n + 1) r := by
+  choose (m + n) r := by
   induction r generalizing n with
   | zero =>
     rw [vandermondeSum]
-    change choose m 0 * choose (n+1) (0 - 0) = choose (m + n + 1) 0
+    change choose m 0 * choose (n) (0 - 0) = choose (m + n) 0
     rw [choose_n0, choose_n0, choose_n0]
   | succ k hk =>
-    rw [vandermonde_step, pascal_rule]
-    have x := hk (n - 1)
-    rw [sub_add_cancel n 1, add_sub_add_cancel] at x
-    rw [x]
+    rw [← sub_add_cancel n 1, vandermonde_step]
+    change vandermondeSum m (n - 1) k + choose (m + (n - 1)) (k + 1) = choose (m + (n - 1) + 1) (k + 1)
+    rw [pascal_rule, hk (n - 1)]
+
+/--
+For non-negative integers m, n, and r where r ≤ m + n, the Vandermonde identity is
+∑ (k = 0 till k = r) (choose m k) * (choose n (r - k)) = choose (m + n) r
+-/
+TheoremDoc Algebra.vandermonde as "vandermonde" in "Algebra"
 
 NewDefinition Game.Common.AlgebraDefs.vandermondeSum
 NewTheorem Algebra.vandermonde_step Algebra.sub_add_cancel Algebra.add_sub_add_cancel

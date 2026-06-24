@@ -1,5 +1,4 @@
 import Game.Metadata
--- import Game.Common.AlgebraDefs
 
 World "Algebra"
 
@@ -77,6 +76,8 @@ If you need to solve any trivial inequalities, like, say `0 < 1` or `k - 1 < k`,
 /--
 `choose n n = 1` for all `n`
 -/
+TheoremDoc Algebra.choose_nn as "choose_nn" in "Algebra"
+
 Statement choose_nn (n : Nat) : choose n n = 1 := by
   induction n with
   | zero =>

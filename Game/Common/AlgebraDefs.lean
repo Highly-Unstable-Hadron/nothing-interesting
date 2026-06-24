@@ -61,4 +61,32 @@ axiom vandermonde_step
 axiom sub_add_cancel (a b : Nat) : a - b + b = a
 axiom add_sub_add_cancel (a b c : Nat) : a + (b - c) + c = a + b
 
+/--
+Binomial Theorem
+-/
+
+def binomialExpansion (x y : Int) (n : Nat) : Int :=
+  ∑ k ∈ Finset.range (n + 1),
+    choose n k * x^k * y^(n-k)
+
+axiom pow_add (a : Int) (b c : Nat) : a^(b + c) = a^b * a^c
+axiom binExp_one : binomialExpansion x y 1 = (x + y)^1
+axiom binExp_zero : binomialExpansion x y 0 = (x + y)^0
+
+/-- :) -/
+
+axiom sum_prod_right (k : Nat) (a : Nat -> Int) (b : Int) : (∑ k ∈ Finset.range (k), a k) * b = (∑ k ∈ Finset.range (k), a k * b)
+axiom inner_sum_prod_left (r s : Nat) (a : Nat -> Int) (b : Nat -> Int) : (∑ r' ∈ Finset.range r, b r' * (∑ s' ∈ Finset.range s, a s')) = (∑ r' ∈ Finset.range r, ∑ s' ∈ Finset.range s, b r' * a s')
+
+axiom collect_by_degree
+  (x y : Int)
+  (m n : Nat) :
+  (∑ i ∈ Finset.range (m+1),
+      ∑ j ∈ Finset.range (n+1),
+       (choose m i) * x ^ i * y ^ (m - i) * ((choose n j) * x ^ j * y ^ (n - j)))
+  =
+  ∑ r ∈ Finset.range (m+n+1),
+      (∑ i ∈ Finset.range (r+1), choose m i * choose n (r-i))
+       * x^r * y^(m+n-r)
+
 end Algebra

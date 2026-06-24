@@ -1,5 +1,5 @@
 import Game.Metadata
--- import Game.Common.AlgebraDefs
+import Game.Levels.AlgebraWorld.L02_ChooseNN
 
 World "Algebra"
 
@@ -62,23 +62,9 @@ edge. Used in the theorem `hockey_stick`.
 -/
 DefinitionDoc Game.Common.AlgebraDefs.diagonalSum as "diagonalSum" in "Algebra"
 
-axiom choose_nn : choose n n = 1  -- level 2
+-- axiom choose_nn : choose n n = 1  -- level 2
 /--
-The hockey-stick theorem is a famous mathematical rule in combinatorics. It states that the sum of
-the numbers along any diagonal in Pascal's triangle, starting from any element on the outer edge,
-is equal to the element just below and to the opposite side of the diagonal's end.
-
-More formally,
-∑(k = r till k = n) choose k r = choose (n + 1) (r + 1)
-
-```
-theorem hockey_stick
-  (n k : Nat) :
-  diagonalSum n k
-    =
-  choose (n + k + 1) (n + 1)
-```
-Check out `diagonalSum` for the full definition
+Hockey-stick theorem: ∑(k = r till k = n) choose k r = choose (n + 1) (r + 1)
 -/
 Statement hockey_stick
   (n k : Nat) :

@@ -1,5 +1,4 @@
 import Game.Metadata
--- import Game.Common.AlgebraDefs
 
 World "Algebra"
 
@@ -44,7 +43,7 @@ TheoremDoc Algebra.rowSum_step as "rowSum_step" in "Algebra"
 /--
 Sum of the elements of the n-th row of the Pascal's triangle = 2^n
 -/
-Statement rowSumClosedForm (n : Nat) : rowSum n = 2 ^ n := by
+Statement (n : Nat) : rowSum n = 2 ^ n := by
 induction n with
   | zero =>
       change 1 = 1
