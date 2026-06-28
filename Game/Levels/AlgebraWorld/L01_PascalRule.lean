@@ -62,6 +62,6 @@ Statement
 
 NewTheorem Algebra.pascal_rule
 NewDefinition Game.Common.AlgebraDefs.choose
-NewTactic rw nth_rewrite exact
+NewTactic rw nth_rewrite exact «repeat» apply
 
 end Algebra

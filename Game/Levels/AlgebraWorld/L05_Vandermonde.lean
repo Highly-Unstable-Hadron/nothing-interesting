@@ -85,6 +85,7 @@ Statement vandermonde (m n r : Nat) :
   vandermondeSum m n r
     =
   choose (m + n) r := by
+  Hint "You can induct on any one of `m`, `n` or `r`...but only one of them is actually feasible. Which one?"
   induction r generalizing n with
   | zero =>
     rw [vandermondeSum]
