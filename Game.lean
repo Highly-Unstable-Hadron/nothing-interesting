@@ -13,7 +13,7 @@ Introduction
 It all ends here.
 "
 
-Dependency Algebra → GraphTheory
+-- Dependency Algebra → GraphTheory
 -- Dependency NumberTheory → GraphTheory
 
 Info "
