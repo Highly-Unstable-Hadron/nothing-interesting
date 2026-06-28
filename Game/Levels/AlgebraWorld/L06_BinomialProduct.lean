@@ -22,11 +22,6 @@ Just a hint: don't try induction.  And check out your new tactics.
 "
 
 /--
-Identical to `rw` in usage and syntax, except `rw` doesn't work inside summations while `simp_rw`
-does.
--/
-TacticDoc simp_rw
-/--
 ```
 def binomialExpansion (x y : Int) (n : Nat) : Int :=
   ∑ k ∈ Finset.range (n + 1),
@@ -81,6 +76,15 @@ Reorders a nested summation by degree of `x` and `y`
 -/
 TheoremDoc Algebra.collect_by_degree as "collect_by_degree" in "Algebra"
 
+/--
+```
+binomialExpansion x y m * binomialExpansion x y n
+= binomialExpansion x y (m + n)
+```
+See `binomialExpansion` for more
+-/
+TheoremDoc Algebra.binomial_prod as "binomial_prod" in "Algebra"
+
 Statement binomial_prod (x y : Int) (m n : Nat) :
   binomialExpansion x y m
   *
@@ -92,7 +96,6 @@ Statement binomial_prod (x y : Int) (m n : Nat) :
   ∑ k ∈ Finset.range (m + n + 1), ↑(choose (m + n) k) * x ^ k * y ^ (m + n - k)
   simp_rw [vandermonde]
 
-NewTactic simp_rw
 NewDefinition Game.Common.AlgebraDefs.binomialExpansion
 NewTheorem Algebra.sum_prod_right Algebra.inner_sum_prod_left Algebra.collect_by_degree
 

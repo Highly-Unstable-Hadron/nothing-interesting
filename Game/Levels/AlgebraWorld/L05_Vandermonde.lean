@@ -75,6 +75,12 @@ Another nice but oddly specific helper theorem for algebraic simplification.
 -/
 TheoremDoc Algebra.add_sub_add_cancel as "add_sub_add_cancel" in "Misc"
 
+/--
+For non-negative integers m, n, and r where r ≤ m + n, the Vandermonde identity is
+∑ (k = 0 till k = r) (choose m k) * (choose n (r - k)) = choose (m + n) r
+-/
+TheoremDoc Algebra.vandermonde as "vandermonde" in "Algebra"
+
 Statement vandermonde (m n r : Nat) :
   vandermondeSum m n r
     =
@@ -88,12 +94,6 @@ Statement vandermonde (m n r : Nat) :
     rw [← sub_add_cancel n 1, vandermonde_step]
     change vandermondeSum m (n - 1) k + choose (m + (n - 1)) (k + 1) = choose (m + (n - 1) + 1) (k + 1)
     rw [pascal_rule, hk (n - 1)]
-
-/--
-For non-negative integers m, n, and r where r ≤ m + n, the Vandermonde identity is
-∑ (k = 0 till k = r) (choose m k) * (choose n (r - k)) = choose (m + n) r
--/
-TheoremDoc Algebra.vandermonde as "vandermonde" in "Algebra"
 
 NewDefinition Game.Common.AlgebraDefs.vandermondeSum
 NewTheorem Algebra.vandermonde_step Algebra.sub_add_cancel Algebra.add_sub_add_cancel

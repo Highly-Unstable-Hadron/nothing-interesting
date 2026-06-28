@@ -53,8 +53,16 @@ induction n with
       change 2 ^ (n + 1) = 2 ^ (n + 1)
       rfl
 
+/--
+Identical to `rw` in usage and syntax, except `rw` doesn't work inside summations while `simp_rw`
+does.
+```
+simp_rw [h1, h2, ← h3]
+```
+-/
+TacticDoc simp_rw
 
-NewTactic rfl change
+NewTactic rfl change simp simp_rw
 NewDefinition Game.Common.AlgebraDefs.rowSum
 NewTheorem Algebra.rowSum_step
 

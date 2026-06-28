@@ -36,15 +36,29 @@ TheoremDoc Algebra.binExp_one as "binExp_one" in "Algebra"
 /--
 ```
 axiom binExp_zero :
-  binomialExpansion x y 1 = (x + y)^0
+  binomialExpansion x y 0 = (x + y)^0
 ```
 Base cases for induction. `rw` and `change` don't work on `binomialExpansion` because of the Nat to
 Int casts, so proving this statement is surprisingly hard. Which is why this has been given as an
 axiom.
 -/
 TheoremDoc Algebra.binExp_zero as "binExp_zero" in "Algebra"
+/--
+The binomial theorem.
+```
+theorem binomialTheorem
+  (x y : Int)
+  (n : Nat) :
+  binomialExpansion x y n
+    =
+  (x + y)^n
+```
+See `binomialExpansion`
+-/
+TheoremDoc Algebra.binomialTheorem as "binomialTheorem" in "Algebra"
 
 Statement
+  binomialTheorem
   (x y : Int)
   (n : Nat) :
   binomialExpansion x y n

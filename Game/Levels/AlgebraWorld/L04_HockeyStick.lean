@@ -66,7 +66,7 @@ DefinitionDoc Game.Common.AlgebraDefs.diagonalSum as "diagonalSum" in "Algebra"
 /--
 Hockey-stick theorem: ∑(k = r till k = n) choose k r = choose (n + 1) (r + 1)
 -/
-Statement hockey_stick
+Statement 
   (n k : Nat) :
   diagonalSum n k
     =
