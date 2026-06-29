@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-24\n"
+"POT-Creation-Date: 2026-06-29\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -9,23 +9,16 @@ msgstr "Project-Id-Version: Game v4.23.0\n"
 "Content-Transfer-Encoding: 8bit"
 
 #. §0: ```
-#. def triangleGraph : Graph :=
-#. { V := {0,1,2}
-#.   E := {e01, e12, e20} }
-#. -- e01, e12 and e20 are the edges of the graph
+#. axiom sum_prod_right
+#.   (k : Nat) (a : Nat -> Int) (b : Int) :
+#.   (∑ k ∈ Finset.range (k), a k) * b
+#.     =
+#.   (∑ k ∈ Finset.range (k), a k * b)
 #. ```
-#. §1: ```
-#.   0
-#.   |\\
-#.   | \\
-#.   |  \\
-#.   1---2
-#. ```
-#: Game.Levels.GraphTheory.L06_Triangle
+#: Game.Levels.AlgebraWorld.L06_BinomialProduct
 msgid "§0\n"
 "\n"
-"It looks like this:\n"
-"§1"
+"(Right-)Distributivity of multiplication over summation"
 msgstr ""
 
 #. §0: ```
@@ -47,6 +40,10 @@ msgstr ""
 msgid ""
 msgstr ""
 
+#: Game.Levels.NumberTheory
+msgid "Number Theory"
+msgstr ""
+
 #: Game.Levels.GraphTheory
 msgid "Graph Theory"
 msgstr ""
@@ -66,50 +63,27 @@ msgstr ""
 msgid "Solves any trivial inequalities."
 msgstr ""
 
-#: Game.Levels.GraphTheory
-msgid "Every theorem you prove reveals another clue in the murder mystery.\n"
-"Work through graph theory from the Handshake Lemma all the way to Euler's theorem."
-msgstr ""
-
-#: Game.Levels.GraphTheory.L05_TwoColour
-msgid "Nicee!!  Time for something harder"
-msgstr ""
-
-#. §0: `axiom edgeCount_addEdge (G : Graph) (e : Edge) (h : e ∉ G.E) : edgeCount (addEdge G e) = edgeCount G + 1`
-#. §1: `edgeCount_addEdge`
-#. §2: `edgeCount`
-#. §3: `rw [edgeCount_addEdge]`
-#. §4: `e ∉ G.E`
-#. §5: `edgeCount_addEdge`
-#. §6: `h : e ∉ G.E`
-#. §7: `rw [edgeCount_addEdge G e h]`
-#. §8: `e ∉ G.E`
-#: Game.Levels.GraphTheory.L03_Handshake
+#. §0: ```
+#. def binomialExpansion (x y : Int) (n : Nat) : Int :=
+#.   ∑ k ∈ Finset.range (n + 1),
+#.     choose n k * x^k * y^(n-k)
+#. ```
+#: Game.Levels.AlgebraWorld.L06_BinomialProduct
 msgid "§0\n"
 "\n"
-"§1 is states that adding an edge to a graph increases its §2 (number of edges in the graph) by 1.\n"
-"\n"
-"## Important:\n"
-"Doing just §3 forces you to prove §4 later as that assumption is an argument\n"
-"for §5. If you already have §6 as a hypothesis, you can directly try\n"
-"§7. Providing all the arguments here means you don't have prove\n"
-"separately §8 later."
+"The binomial expansion of (x + y) ^ n"
 msgstr ""
 
-#. §0: `induction`
-#. §1: ```
-#. induction G using graph_induction
-#. ... (base case)
-#. ... (inductive step)
+#. §0: `rw`
+#. §1: `rw`
+#. §2: `simp_rw`
+#. §3: ```
+#. simp_rw [h1, h2, ← h3]
 #. ```
-#: Game.Levels.GraphTheory.L03_Handshake
-msgid "Helps you induct on graphs, one edge at a time. Use with the §0 tactic as follows:\n"
-"## Usage:\n"
-"§1\n"
-"Immediately after the first line, the goal state will update to show the base case.\n"
-"As soon as the base case is proven, the goal state will update to show the inductive case.\n"
-"The induction assumption(s) will be usable as a named hypothesis (automatically named, visible above your goal state)\n"
-"to prove the inductive case."
+#: Game.Levels.AlgebraWorld.L03_RowSum
+msgid "Identical to §0 in usage and syntax, except §1 doesn't work inside summations while §2\n"
+"does.\n"
+"§3"
 msgstr ""
 
 #. §0: ```
@@ -120,6 +94,10 @@ msgid "Pascal's Rule:\n"
 "§0\n"
 "\n"
 "Every entry is the sum of the two entries above it."
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L05_Vandermonde
+msgid "Vandermonde's Identity"
 msgstr ""
 
 #. §0: `simp`
@@ -134,13 +112,6 @@ msgid "§0 simplifies the goal using known definitions and theorems.\n"
 "§1"
 msgstr ""
 
-#: Game
-msgid "# Knives Out.\n"
-"## _Round 2_\n"
-"\n"
-"It all ends here."
-msgstr ""
-
 #. §0: ```
 #. axiom triangle_edge_01 : e01 ∈ triangleGraph.E
 #. axiom triangle_edge_12 : e12 ∈ triangleGraph.E
@@ -153,16 +124,12 @@ msgid "Proofs that the edges e01, e12 and e20 are a part of the graph\n"
 "§0"
 msgstr ""
 
-#. §0: ```
-#. axiom choose_k_gt_n (h : k > n) : choose n k = 0
-#. ```
-#: Game.Levels.AlgebraWorld.L02_ChooseNN
-msgid "If k > n, choose n k = 0.\n"
-"§0"
-msgstr ""
-
 #: Game.Levels.GraphTheory.L06_Triangle
 msgid "Triangle Is Not 2-Colourable"
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L04_HockeyStick
+msgid "Hockey Stick Theorem"
 msgstr ""
 
 #: Game
@@ -189,24 +156,90 @@ msgstr ""
 msgid "Try §0ing it to something equivalent (...wait doesn't this just say 1 + 1 = 2?)"
 msgstr ""
 
-#: Game.Levels.GraphTheory.L07_Bipartite
-msgid "Time for the boss levels"
+#. §0: `a ≡ b [MOD m]`
+#. §1: `aⁿ ≡ bⁿ [MOD m]`
+#. §2: `n`
+#: Game.Levels.NumberTheory.L06_CongrPow
+msgid "If\n"
+"\n"
+"§0,\n"
+"\n"
+"then\n"
+"\n"
+"§1\n"
+"\n"
+"for every natural number §2."
 msgstr ""
 
-#: Game.Levels.GraphTheory.L03_Handshake
-msgid "The total degree sum equals twice the number of edges.\n"
+#. §0: `rowSum n`
+#. §1: `n`
+#. §2: ```
+#. rowSum n =
+#. Σ choose n k
+#. ```
+#. §3: ```
+#. def rowSum (n : Nat) : Nat :=
+#.   ∑ k ∈ Finset.range (n + 1), choose n k
+#. ```
+#: Game.Levels.AlgebraWorld.L03_RowSum
+msgid "§0 is the sum of all entries\n"
+"in row §1 of Pascal's triangle.\n"
 "\n"
-"Prove it by induction on the number of edges."
+"§2\n"
+"\n"
+"Lean definition:\n"
+"§3"
+msgstr ""
+
+#. §0: `a ≡ b [MOD m]`
+#. §1: `c ≡ d [MOD m]`
+#. §2: `a`
+#. §3: `b`
+#. §4: `m`
+#. §5: `c`
+#. §6: `d`
+#. §7: `a + c ≡ b + d [MOD m]`
+#. §8: `mod_add`
+#: Game.Levels.NumberTheory.L04_Addition
+msgid "One of the most useful properties of congruence is that it behaves well with arithmetic operations.\n"
+"\n"
+"Suppose\n"
+"\n"
+"- §0, and\n"
+"- §1.\n"
+"\n"
+"Since §2 and §3 have the same remainder modulo §4, and so do §5 and §6,\n"
+"adding the two congruences together should produce another congruence:\n"
+"\n"
+"§7.\n"
+"\n"
+"The helper theorem §8 formalizes the fact that reducing each summand before adding\n"
+"gives the same remainder as adding first and reducing afterwards.\n"
+"\n"
+"This level also unlocks a few basic Lean tactics that will be useful throughout the\n"
+"rest of the game."
 msgstr ""
 
 #. §0: ```
-#. axiom oddCycle_opposite_color (hc : ValidColoring G c) (hC : OddCycle G)
-#.   : c hC.start ≠ c hC.finish
+#. axiom vandermonde_step
+#.   (m n r : Nat) :
+#.   vandermondeSum m (n + 1) (r + 1)
+#.     =
+#.   vandermondeSum m n r
+#.     +
+#.   choose (m + n) (r + 1)
 #. ```
-#: Game.Levels.GraphTheory.L07_Bipartite
-msgid "The proof that the starting and ending nodes of paths of odd length in a bipartite graph are of\n"
-"different colours.\n"
-"§0"
+#. §1: `vandermondeSum`
+#: Game.Levels.AlgebraWorld.L05_Vandermonde
+msgid "§0\n"
+"Defines a recurrence on §1."
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L07_BinomialTheorem
+msgid "Congrats!  You have finished the Algebra world! :)\n"
+"\n"
+"Interestingly, most of the previous levels could have been proven trivially using the binomial\n"
+"theorem. Do you know how?"
 msgstr ""
 
 #. §0: ```
@@ -225,23 +258,35 @@ msgid "§0\n"
 "§3 indicates the vertex the edge arises out of and §4 indicates the vertex the edge goes into."
 msgstr ""
 
-#: Game.Levels.GraphTheory.L02_AddEdge
-msgid "We know what happens to the total degree sum when we add an edge.\n"
-"Use the helper lemma."
-msgstr ""
-
 #. §0: ```
-#. axiom choose_n1 (h : n ≠ 0) : choose n 1 = n
+#. axiom add_sub_add_cancel (a b c : Nat) : a + (b - c) + c = a + b
 #. ```
-#: Game.Levels.AlgebraWorld.L02_ChooseNN
-msgid "Choose n 1 = n for all n if n ≠ 0.\n"
-"§0"
+#: Game.Levels.AlgebraWorld.L05_Vandermonde
+msgid "§0\n"
+"Another nice but oddly specific helper theorem for algebraic simplification."
 msgstr ""
 
-#: Game.Levels.GraphTheory.L04_OddDegVerts
-msgid "The Handshake Lemma tells us that the sum of all degrees is even.\n"
+#. §0: `a ≡ b [MOD m]`
+#. §1: `b ≡ a [MOD m]`
+#: Game.Levels.NumberTheory.L02_Symmetry
+msgid "Congruence is symmetric:\n"
 "\n"
-"Use this fact to show that the number of odd-degree vertices is even."
+"if §0, then §1."
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L06_BinomialProduct
+msgid "Binomial Product"
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L05_Vandermonde
+msgid "For non-negative integers m, n, and r where r ≤ m + n, the Vandermonde identity is\n"
+"∑ (k = 0 till k = r) (choose m k) * (choose n (r - k)) = choose (m + n) r"
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L01_PascalRule
+msgid "Pascal's triangle is generated by a remarkable rule.\n"
+"\n"
+"Every entry is the sum of the two entries above it."
 msgstr ""
 
 #. §0: `one_edge_graph`
@@ -261,53 +306,6 @@ msgid "An edge contributes 1 to the degree of each endpoint.\n"
 "§1\n"
 "\n"
 "It is a graph with 2 vertices (labelled 1 and 2 respectively) and a single edge between them."
-msgstr ""
-
-#: Game.Levels.AlgebraWorld.L01_PascalRule
-msgid "Pascal's triangle is generated by a remarkable rule.\n"
-"\n"
-"Every entry is the sum of the two entries above it.\n"
-"\n"
-"Prove that the factorial definition satisfies\n"
-"the same rule."
-msgstr ""
-
-#. §0: ```
-#. inductive Color where
-#. | red
-#. | blue
-#. ```
-#. §1: `Color`
-#. §2: `ValidColoring`
-#. §3: `Color.red`
-#. §4: `Color.blue`
-#: Game.Levels.GraphTheory.L05_TwoColour
-msgid "§0\n"
-"The possible colours a node could be assigned. §1 here models a bipartite graph, i.e. a graph\n"
-"where each node can receive one of 2 possible colours. There are additional constraints on bipartite graphs\n"
-"modelled in §2. To reference the possible colours, use §3 or §4."
-msgstr ""
-
-#: Game.Levels.GraphTheory.L04_OddDegVerts
-msgid "Odd-Degree Vertices Come In Pairs"
-msgstr ""
-
-#. §0: ```
-#. structure Graph where
-#.   V : Finset Nat
-#.   E : Finset Edge
-#. ```
-#. §1: `(a, b)`
-#. §2: `a != b`
-#. §3: `G`
-#. §4: `G.V`
-#. §5: `G.E`
-#: Game.Levels.GraphTheory.L02_AddEdge
-msgid "§0\n"
-"A graph is a set of vertices V (each vertex represented as a natural number) and a set of edges E\n"
-"(each edge represented by an ordered pair §1 where §2. See the definition of Edge for more info)\n"
-"\n"
-"For a graph §3, you can access its vertex set so: §4, and its edge set so: §5."
 msgstr ""
 
 #: Game.Levels.GraphTheory.L01_SingleEdge
@@ -367,8 +365,37 @@ msgid "Prove that a triangle graph cannot be coloured using only two colours.\n"
 "Now off you go!"
 msgstr ""
 
-#: Game.Levels.GraphTheory.L05_TwoColour
-msgid "A Valid 2-Colouring"
+#: Game.Levels.NumberTheory.L01_Reflexivity
+msgid "Congruence Modulo m"
+msgstr ""
+
+#. §0: ```
+#. @[simp]
+#. def Congruent (a b m : Nat) : Prop :=
+#.   a % m = b % m
+#. ```
+#. §1: `m`
+#. §2: `m`
+#. §3: ```
+#. rw [Congruent]
+#. ```
+#. §4: ```
+#. simp
+#. ```
+#. §5: `@[simp]`
+#: Game.Levels.NumberTheory.L01_Reflexivity
+msgid "§0\n"
+"\n"
+"Two natural numbers are **congruent modulo** §1 if they have the same remainder when divided by §2.\n"
+"\n"
+"You can unfold this definition either with\n"
+"\n"
+"§3\n"
+"\n"
+"or simply\n"
+"\n"
+"§4\n"
+"since the definition is marked with §5."
 msgstr ""
 
 #. §0: ```
@@ -384,49 +411,6 @@ msgid "It's a list of all the edges in the following graph:\n"
 "Use §1 multiple times to prove that a property §2 holds on each of the edges."
 msgstr ""
 
-#: GameServer.RpcHandlers
-msgid "level completed! 🎉"
-msgstr ""
-
-#: Game.Levels.AlgebraWorld.L03_RowSum
-msgid "Sum of the elements of the n-th row of the Pascal's triangle = 2^n/"
-msgstr ""
-
-#. §0: `handshake_lemma`
-#: Game.Levels.GraphTheory.L04_OddDegVerts
-msgid "Use the §0 you proved last level"
-msgstr ""
-
-#: Game.Levels.GraphTheory.L02_AddEdge
-msgid ":)"
-msgstr ""
-
-#. §0: ```
-#. def degree (G : Graph) (v : Nat) : Nat := (G.E.filter (fun e => incident v e)).card
-#. ```
-#. §1: `degree G v`
-#. §2: `G`
-#. §3: `v`
-#. §4: `v`
-#: Game.Levels.GraphTheory.L02_AddEdge
-msgid "§0\n"
-"§1 where §2 is a graph and §3 is a vertex gives you the number of edges which have §4 as one of their endpoints."
-msgstr ""
-
-#: Game.Levels.GraphTheory.L01_SingleEdge
-msgid "That was easy, wasn't it"
-msgstr ""
-
-#: Game.Levels.AlgebraWorld.L03_RowSum
-msgid "Add all entries in a row of Pascal's triangle.\n"
-"\n"
-"The answer is unexpectedly simple."
-msgstr ""
-
-#: Game.Levels.AlgebraWorld
-msgid "hee hee ;)"
-msgstr ""
-
 #. §0: `have`
 #. §1: ```
 #. have h : a = c := by
@@ -437,6 +421,10 @@ msgid "§0 introduces an intermediate result.\n"
 "\n"
 "Example:\n"
 "§1"
+msgstr ""
+
+#: Game.Levels.AlgebraWorld
+msgid "hee hee ;)"
 msgstr ""
 
 #. §0: `choose n k`
@@ -467,41 +455,23 @@ msgid "§0\n"
 "the degrees of the vertices in the graph §2 whose degree is even, i.e. §3"
 msgstr ""
 
-#. §0: `theorem handshake_lemma (G : Graph) : sumDegrees G = 2 * edgeCount G`
-#: Game.Levels.GraphTheory.L04_OddDegVerts
-msgid "The sum of the degrees of the vertices is twice the number of the edges in a graph.\n"
-"§0"
-msgstr ""
-
-#: Game.Levels.AlgebraWorld.L02_ChooseNN
-msgid "Choose n n = 1"
-msgstr ""
-
-#: Game.Levels.AlgebraWorld.L01_PascalRule
-msgid "Pascal's Rule"
-msgstr ""
-
-#: Game.Levels.GraphTheory.L07_Bipartite
-msgid "Bipartite Graphs Have No Odd Cycles"
+#. §0: ```
+#. axiom pow_add (a : Int) (b c : Nat) :
+#.    a^(b + c) = a^b * a^c
+#. ```
+#. §1: `rw[pow_add]`
+#: Game.Levels.AlgebraWorld.L07_BinomialTheorem
+msgid "§0\n"
+"a^(b + c) = a^b * a^c\n"
+"Use §1"
 msgstr ""
 
 #: Game.Levels.GraphTheory.L05_TwoColour
 msgid "Provide a colouring of this graph."
 msgstr ""
 
-#. §0: `False`
-#. §1: `contradiction`
-#: Game.Levels.GraphTheory.L06_Triangle
-msgid "P.S. To prove §0, use the §1 tactic when you see two obviously contradictory\n"
-"hypotheses in your goal state."
-msgstr ""
-
 #: Game.Levels.GraphTheory.L06_Triangle
 msgid "Awesome!!"
-msgstr ""
-
-#: Game.Levels.AlgebraWorld.L03_RowSum
-msgid "A Row of Powers"
 msgstr ""
 
 #. §0: `have`
@@ -583,25 +553,6 @@ msgid "§0\n"
 "Proves reflexivity on §1/§2."
 msgstr ""
 
-#. §0: ```
-#. -- if a vertex is not colored red, it is colored blue
-#. axiom neq_red : col ≠ Color.red → col = Color.blue
-#. -- and vice versa
-#. axiom neq_blue : col ≠ Color.blue → col = Color.red
-#. ```
-#. §1: ```
-#. have he : c 0 ≠ Color.red
-#. have he' : c 0 = Color.blue := by exact (neq_red he)
-#. ```
-#: Game.Levels.GraphTheory.L06_Triangle
-#: Game.Levels.GraphTheory.L06_Triangle
-msgid "§0\n"
-"\n"
-"## Usage\n"
-"§1\n"
-"similarly for neq_blue"
-msgstr ""
-
 #. §0: `induction`
 #. §1: ```
 #. induction n with
@@ -623,16 +574,51 @@ msgid "§0 proves a statement for every natural\n"
 msgstr ""
 
 #. §0: ```
-#. -- multiset of degrees of each vertex
-#. def DegreeContributions (G : Graph) := (Multiset.map (degree G) G.V.val)
-#. def EvenDegreeContributions (G : Graph) := (DegreeContributions G).filter (fun x => Even x)
-#. -- number of nodes with even degree
-#. def evenDegreeCount (G : Graph) : Nat := (EvenDegreeContributions G).card
+#. binomialExpansion x y m * binomialExpansion x y n
+#. = binomialExpansion x y (m + n)
 #. ```
-#. §1: `evenDegreeCount G`
-#: Game.Levels.GraphTheory.L04_OddDegVerts
+#. §1: `binomialExpansion`
+#: Game.Levels.AlgebraWorld.L06_BinomialProduct
 msgid "§0\n"
-"§1 gives you the number of vertices in the graph with even degree."
+"See §1 for more"
+msgstr ""
+
+#. §0: ```
+#. 
+#. axiom pow_succ (a : Nat) :
+#. a ^ (n + 1) = a ^ n * a
+#. 
+#. ```
+#. §1: `n + 1`
+#. §2: ```
+#. 
+#. x^5 = x^4 * x
+#. 
+#. ```
+#: Game.Levels.NumberTheory.L06_CongrPow
+msgid "§0\n"
+"\n"
+"Rewrites a power with exponent §1 as a product.\n"
+"\n"
+"For example,\n"
+"\n"
+"§2\n"
+"\n"
+"This theorem is especially useful when proving statements about powers by\n"
+"induction."
+msgstr ""
+
+#. §0: ```
+#. binomialExpansion x y m * binomialExpansion x y n
+#. = binomialExpansion x y (m + n)
+#. ```
+#: Game.Levels.AlgebraWorld.L06_BinomialProduct
+msgid "Prove that\n"
+"§0\n"
+"\n"
+"It's the final step to proving the binomial theorem.\n"
+"\n"
+"Just a hint: don't try induction.  And check out your new tactics."
 msgstr ""
 
 #. §0: `rw [h]`
@@ -662,8 +648,57 @@ msgid "§0 is literally §1 (there exists some natural number §2 such that §3)
 "Use §4 to expand it to this definition."
 msgstr ""
 
+#: Game.Levels.NumberTheory.L04_Addition
+msgid "Congruence and Addition"
+msgstr ""
+
 #: Game
 msgid "Knives Out"
+msgstr ""
+
+#. §0: ```
+#. axiom binExp_one :
+#.   binomialExpansion x y 1 = (x + y)^1
+#. ```
+#. §1: `rw`
+#. §2: `change`
+#. §3: `binomialExpansion`
+#: Game.Levels.AlgebraWorld.L07_BinomialTheorem
+#: Game.Levels.AlgebraWorld.L07_BinomialTheorem
+msgid "§0\n"
+"Base cases for induction. §1 and §2 don't work on §3 because of the Nat to\n"
+"Int casts, so proving this statement is surprisingly hard. Which is why this has been given as an\n"
+"axiom."
+msgstr ""
+
+#. §0: `a ≡ b [MOD m]`
+#. §1: `b ≡ c [MOD m]`
+#. §2: `a ≡ c [MOD m]`
+#: Game.Levels.NumberTheory.L03_Transitivity
+msgid "Congruence is transitive:\n"
+"\n"
+"if §0 and §1,\n"
+"then §2."
+msgstr ""
+
+#. §0: `m`
+#. §1: `17 ≡ 5 [MOD 4]`
+#. §2: `1`
+#. §3: `13 ≡ 1 [MOD 6]`
+#. §4: `1`
+#. §5: `Congruent`
+#: Game.Levels.NumberTheory.L01_Reflexivity
+msgid "In modular arithmetic, two natural numbers are said to be **congruent modulo m** if they have the\n"
+"same remainder when divided by §0.\n"
+"\n"
+"For example,\n"
+"\n"
+"- §1, because both leave remainder §2.\n"
+"- §3, because both leave remainder §4.\n"
+"\n"
+"In this world, congruence is represented by the predicate §5.\n"
+"\n"
+"Your first task is simply to prove that every number is congruent to itself."
 msgstr ""
 
 #: Game.Levels.GraphTheory.L03_Handshake
@@ -672,28 +707,6 @@ msgstr ""
 
 #: Game.Levels.GraphTheory.L07_Bipartite
 msgid "A valid 2-colouring prevents odd cycles."
-msgstr ""
-
-#. §0: ```
-#. structure OddCycle (G : Graph) where
-#.   start : Nat
-#.   finish : Nat
-#.   hsame : finish = start
-#. ```
-#. §1: `start`
-#. §2: `finish`
-#. §3: `hsame`
-#. §4: `start`
-#. §5: `finish`
-#. §6: `oddCycle_opposite_color`
-#: Game.Levels.GraphTheory.L07_Bipartite
-msgid "Defines a cycle of odd-length in a graph.\n"
-"\n"
-"§0\n"
-"§1 is the first (arbitrarily chosen) node of the cycle, §2 is the last node of the cycle.\n"
-"§3 is the hypothesis that §4 and §5 correspond to the same node, i.e. that the path\n"
-"forms a cycle. That it is a cycle of odd-length is not explicitly encoded in this definition, see\n"
-"theorem §6 for that."
 msgstr ""
 
 #. §0: ```
@@ -713,23 +726,6 @@ msgid "§0\n"
 "\n"
 "§1 can be used like\n"
 "§2"
-msgstr ""
-
-#. §0: `rowSum n`
-#. §1: `n`
-#. §2: ```
-#. rowSum n =
-#. Σ choose n k
-#. ```
-#: Game.Levels.AlgebraWorld.L03_RowSum
-msgid "§0 is the sum of all entries\n"
-"in row §1 of Pascal's triangle.\n"
-"\n"
-"§2"
-msgstr ""
-
-#: Game.Levels.GraphTheory.L02_AddEdge
-msgid "Check your unlocked theorems"
 msgstr ""
 
 #. §0: ```
@@ -754,10 +750,6 @@ msgid "§0\n"
 "§1 gives you the number of vertices in the graph with odd degree."
 msgstr ""
 
-#: Game.Levels.GraphTheory.L02_AddEdge
-msgid "Adding One Edge"
-msgstr ""
-
 #. §0: ```
 #.   0 -- 1
 #.   |    |
@@ -779,12 +771,18 @@ msgstr ""
 msgid "§0 gives you the number of edges in graph G."
 msgstr ""
 
-#. §0: ```
-#. axiom choose_n0 : choose n 0 = 1
-#. ```
-#: Game.Levels.AlgebraWorld.L02_ChooseNN
-msgid "Choose n 0 = 1 for all n.\n"
-"§0"
+#. §0: `a = b`
+#. §1: `b = a`
+#. §2: `Congruent`
+#: Game.Levels.NumberTheory.L02_Symmetry
+msgid "Congruence behaves very much like ordinary equality.\n"
+"\n"
+"One important property of equality is **symmetry**:\n"
+"\n"
+"if §0, then §1.\n"
+"\n"
+"Congruence satisfies the same property.\n"
+"Since §2 is defined using equality of remainders, this proof is just an exercise in rewriting."
 msgstr ""
 
 #. §0: ```
@@ -808,6 +806,666 @@ msgid "§0\n"
 msgstr ""
 
 #. §0: ```
+#. 
+#. axiom mod_mul (a b m : Nat) :
+#. (a * b) % m =
+#. ((a % m) * (b % m)) % m
+#. 
+#. ```
+#. §1: `m`
+#. §2: `(17 * 9) % 5 = 3`
+#. §3: `((17 % 5) * (9 % 5)) % 5 = (2 * 4) % 5 = 3`
+#: Game.Levels.NumberTheory.L05_Multiplication
+msgid "§0\n"
+"\n"
+"Reducing each factor modulo §1 before multiplying gives the same remainder\n"
+"as multiplying first and reducing afterwards.\n"
+"\n"
+"For example,\n"
+"\n"
+"- §2\n"
+"- §3\n"
+"\n"
+"Both computations produce the same remainder."
+msgstr ""
+
+#. §0: ```
+#. axiom mod_add (a b m : Nat) :
+#.   (a + b) % m =
+#.   (a % m + b % m) % m
+#. ```
+#. §1: `m`
+#. §2: `m`
+#. §3: `(17 + 9) % 5 = 1`
+#. §4: `(17 % 5 + 9 % 5) % 5 = (2 + 4) % 5 = 1`
+#: Game.Levels.NumberTheory.L04_Addition
+msgid "§0\n"
+"\n"
+"Reducing two numbers modulo §1 before adding them produces the same remainder\n"
+"as adding the numbers first and then reducing modulo §2.\n"
+"\n"
+"For example,\n"
+"\n"
+"* §3\n"
+"* §4\n"
+"\n"
+"Both computations produce the same remainder."
+msgstr ""
+
+#: Game.Levels.AlgebraWorld
+msgid "Algebra World"
+msgstr ""
+
+#. §0: ```
+#. def triangleGraph : Graph :=
+#. { V := {0,1,2}
+#.   E := {e01, e12, e20} }
+#. -- e01, e12 and e20 are the edges of the graph
+#. ```
+#. §1: ```
+#.   0
+#.   |\\
+#.   | \\
+#.   |  \\
+#.   1---2
+#. ```
+#: Game.Levels.GraphTheory.L06_Triangle
+msgid "§0\n"
+"\n"
+"It looks like this:\n"
+"§1"
+msgstr ""
+
+#: Game.Levels.NumberTheory.L01_Reflexivity
+msgid "Reflexivity of congruence.\n"
+"Every natural number is congruent to itself modulo every modulus."
+msgstr ""
+
+#: Game.Levels.NumberTheory
+msgid "7 number theory problems of progressive difficulty"
+msgstr ""
+
+#. §0: ```
+#. def vandermondeSum (m n r : Nat) : Nat :=
+#.   ∑ i ∈ Finset.range (r + 1),
+#.     choose m i * choose n (r - i)
+#. ```
+#: Game.Levels.AlgebraWorld.L05_Vandermonde
+msgid "§0\n"
+"\n"
+"This is simply the summation\n"
+"\n"
+"∑ (k = 0 till k = r) (choose m k) * (choose n (r - k)) = choose (m + n) r"
+msgstr ""
+
+#. §0: `induction <x> generalizing <y> with ..`
+#. §1: `induction`
+#. §2: `f(x, y, z) = g(x)`
+#. §3: `x`
+#. §4: `f(x, y, z) = g(x)`
+#. §5: `f(x + 1, y, z) = g(x + 1)`
+#. §6: `f(x + 1, 2 * y, √ z) = g(x + 1)`
+#. §7: `f(x, y, z) = g(x)`
+#. §8: `y`
+#. §9: `z`
+#. §10: `induction x with`
+#. §11: `induction x generalizing y z with`
+#. §12: `∀ (y z), f(x, y, z) = g(x)`
+#. §13: `f(x, y, z) = g(x)`
+#. §14: `rw [induction_hyp (2 * y) (√ z)]`
+#. §15: `y`
+#. §16: `z`
+#. §17: `rw`
+#: Game.Levels.AlgebraWorld.L05_Vandermonde
+msgid "Vandermonde's Identity is a fundamental combinatorial formula expressing that the sum of products of\n"
+"binomial coefficients equals a single binomial coefficient. For non-negative integers m, n, and r\n"
+"where r ≤ m + n, the identity is\n"
+"∑ (k = 0 till k = r) (choose m k) * (choose n (r - k)) = choose (m + n) r\n"
+"\n"
+"# induction generalizing\n"
+"To prove it, you will need a new tool in your belt: §0\n"
+"It's an extension of the §1 tactic that allows you to induct better on functions with multiple\n"
+"arguments.\n"
+"\n"
+"Say you need to prove §2 by induction on §3. Your induction hypothesis will eventually\n"
+"become §4 and goal state §5.  However, what if, in the process of\n"
+"manipulating/rewriting the function, you get a goal state of say §6?\n"
+"You can no longer substitute the induction hypothesis §7 because the variables §8 and §9\n"
+"are different.\n"
+"\n"
+"Fear not!  You just need to change the first line from §10 to\n"
+"§11.  This changes your induction hypothesis to\n"
+"§12 instead of just §13.  Now, you can still substitute this\n"
+"hypothesis into your goal state by doing §14 (or whatever your induction\n"
+"hypothesis is named and whatever y and z you want).\n"
+"\n"
+"Remember, you have to give §15 and §16 as arguments in this case before you can use §17 on it!"
+msgstr ""
+
+#: Game.Levels.GraphTheory
+msgid "Every theorem you prove reveals another clue in the murder mystery.\n"
+"Work through graph theory from the Handshake Lemma all the way to Euler's theorem."
+msgstr ""
+
+#: Game.Levels.GraphTheory.L05_TwoColour
+msgid "Nicee!!  Time for something harder"
+msgstr ""
+
+#. §0: ```
+#. axiom sub_add_cancel (a b : Nat) : a - b + b = a
+#. ```
+#: Game.Levels.AlgebraWorld.L05_Vandermonde
+msgid "§0\n"
+"A nice helper theorem for algebraic simplification."
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L04_HockeyStick
+msgid "Hockey-stick theorem: ∑(k = r till k = n) choose k r = choose (n + 1) (r + 1)"
+msgstr ""
+
+#. §0: `axiom edgeCount_addEdge (G : Graph) (e : Edge) (h : e ∉ G.E) : edgeCount (addEdge G e) = edgeCount G + 1`
+#. §1: `edgeCount_addEdge`
+#. §2: `edgeCount`
+#. §3: `rw [edgeCount_addEdge]`
+#. §4: `e ∉ G.E`
+#. §5: `edgeCount_addEdge`
+#. §6: `h : e ∉ G.E`
+#. §7: `rw [edgeCount_addEdge G e h]`
+#. §8: `e ∉ G.E`
+#: Game.Levels.GraphTheory.L03_Handshake
+msgid "§0\n"
+"\n"
+"§1 is states that adding an edge to a graph increases its §2 (number of edges in the graph) by 1.\n"
+"\n"
+"## Important:\n"
+"Doing just §3 forces you to prove §4 later as that assumption is an argument\n"
+"for §5. If you already have §6 as a hypothesis, you can directly try\n"
+"§7. Providing all the arguments here means you don't have prove\n"
+"separately §8 later."
+msgstr ""
+
+#. §0: `induction`
+#. §1: ```
+#. induction G using graph_induction
+#. ... (base case)
+#. ... (inductive step)
+#. ```
+#: Game.Levels.GraphTheory.L03_Handshake
+msgid "Helps you induct on graphs, one edge at a time. Use with the §0 tactic as follows:\n"
+"## Usage:\n"
+"§1\n"
+"Immediately after the first line, the goal state will update to show the base case.\n"
+"As soon as the base case is proven, the goal state will update to show the inductive case.\n"
+"The induction assumption(s) will be usable as a named hypothesis (automatically named, visible above your goal state)\n"
+"to prove the inductive case."
+msgstr ""
+
+#: Game
+msgid "# Knives Out.\n"
+"## _Round 2_\n"
+"\n"
+"It all ends here."
+msgstr ""
+
+#. §0: ```
+#. axiom choose_k_gt_n (h : k > n) : choose n k = 0
+#. ```
+#: Game.Levels.AlgebraWorld.L02_ChooseNN
+msgid "If k > n, choose n k = 0.\n"
+"§0"
+msgstr ""
+
+#. §0: `a ≡ b [MOD m]`
+#. §1: `c ≡ d [MOD m]`
+#. §2: `a * c ≡ b * d [MOD m]`
+#. §3: `mod_add`
+#. §4: `mod_mul`
+#: Game.Levels.NumberTheory.L05_Multiplication
+msgid "Congruence is compatible with multiplication too.\n"
+"\n"
+"Suppose\n"
+"\n"
+"- §0, and\n"
+"- §1.\n"
+"\n"
+"Since replacing a number by another with the same remainder does not change the\n"
+"remainder of a product, we obtain\n"
+"\n"
+"§2.\n"
+"\n"
+"This proof is almost identical to the previous level. The only difference is\n"
+"that instead of using §3, you will use §4."
+msgstr ""
+
+#: Game.Levels.GraphTheory.L03_Handshake
+msgid "The total degree sum equals twice the number of edges.\n"
+"\n"
+"Prove it by induction on the number of edges."
+msgstr ""
+
+#. §0: ```
+#. axiom oddCycle_opposite_color (hc : ValidColoring G c) (hC : OddCycle G)
+#.   : c hC.start ≠ c hC.finish
+#. ```
+#: Game.Levels.GraphTheory.L07_Bipartite
+msgid "The proof that the starting and ending nodes of paths of odd length in a bipartite graph are of\n"
+"different colours.\n"
+"§0"
+msgstr ""
+
+#: Game.Levels.GraphTheory.L02_AddEdge
+msgid "We know what happens to the total degree sum when we add an edge.\n"
+"Use the helper lemma."
+msgstr ""
+
+#. §0: ```
+#. axiom collect_by_degree
+#.   (x y : Int)
+#.   (m n : Nat) :
+#.   (∑ i ∈ Finset.range (m+1),
+#.       ∑ j ∈ Finset.range (n+1),
+#.        (choose m i) * x ^ i * y ^ (m - i) * ((choose n j) * x ^ j * y ^ (n - j)))
+#.   =
+#.   ∑ r ∈ Finset.range (m+n+1),
+#.       (∑ i ∈ Finset.range (r+1), choose m i * choose n (r-i))
+#.        * x^r * y^(m+n-r)
+#. ```
+#. §1: `x`
+#. §2: `y`
+#: Game.Levels.AlgebraWorld.L06_BinomialProduct
+msgid "§0\n"
+"Reorders a nested summation by degree of §1 and §2"
+msgstr ""
+
+#. §0: ```
+#. axiom choose_n1 (h : n ≠ 0) : choose n 1 = n
+#. ```
+#: Game.Levels.AlgebraWorld.L02_ChooseNN
+msgid "Choose n 1 = n for all n if n ≠ 0.\n"
+"§0"
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L07_BinomialTheorem
+msgid "Binomial Theorem"
+msgstr ""
+
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "The Handshake Lemma tells us that the sum of all degrees is even.\n"
+"\n"
+"Use this fact to show that the number of odd-degree vertices is even."
+msgstr ""
+
+#. §0: `choose n n = 1`
+#. §1: `n`
+#: Game.Levels.AlgebraWorld.L02_ChooseNN
+msgid "§0 for all §1"
+msgstr ""
+
+#. §0: ```
+#. inductive Color where
+#. | red
+#. | blue
+#. ```
+#. §1: `Color`
+#. §2: `ValidColoring`
+#. §3: `Color.red`
+#. §4: `Color.blue`
+#: Game.Levels.GraphTheory.L05_TwoColour
+msgid "§0\n"
+"The possible colours a node could be assigned. §1 here models a bipartite graph, i.e. a graph\n"
+"where each node can receive one of 2 possible colours. There are additional constraints on bipartite graphs\n"
+"modelled in §2. To reference the possible colours, use §3 or §4."
+msgstr ""
+
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "Odd-Degree Vertices Come In Pairs"
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L07_BinomialTheorem
+msgid "Let's tie it all up together. This one needs no explanation.\n"
+"\n"
+"Prove the binomial theorem."
+msgstr ""
+
+#. §0: ```
+#. structure Graph where
+#.   V : Finset Nat
+#.   E : Finset Edge
+#. ```
+#. §1: `(a, b)`
+#. §2: `a != b`
+#. §3: `G`
+#. §4: `G.V`
+#. §5: `G.E`
+#: Game.Levels.GraphTheory.L02_AddEdge
+msgid "§0\n"
+"A graph is a set of vertices V (each vertex represented as a natural number) and a set of edges E\n"
+"(each edge represented by an ordered pair §1 where §2. See the definition of Edge for more info)\n"
+"\n"
+"For a graph §3, you can access its vertex set so: §4, and its edge set so: §5."
+msgstr ""
+
+#: Game.Levels.NumberTheory.L06_CongrPow
+msgid "Congruence and Powers"
+msgstr ""
+
+#: Game.Levels.GraphTheory.L05_TwoColour
+msgid "A Valid 2-Colouring"
+msgstr ""
+
+#: Game.Levels.NumberTheory.L05_Multiplication
+msgid "Congruence and Multiplication"
+msgstr ""
+
+#: GameServer.RpcHandlers
+msgid "level completed! 🎉"
+msgstr ""
+
+#. §0: `handshake_lemma`
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "Use the §0 you proved last level"
+msgstr ""
+
+#: Game.Levels.GraphTheory.L02_AddEdge
+msgid ":)"
+msgstr ""
+
+#. §0: ```
+#. def degree (G : Graph) (v : Nat) : Nat := (G.E.filter (fun e => incident v e)).card
+#. ```
+#. §1: `degree G v`
+#. §2: `G`
+#. §3: `v`
+#. §4: `v`
+#: Game.Levels.GraphTheory.L02_AddEdge
+msgid "§0\n"
+"§1 where §2 is a graph and §3 is a vertex gives you the number of edges which have §4 as one of their endpoints."
+msgstr ""
+
+#. §0: `a ≡ b [MOD m]`
+#. §1: `aⁿ ≡ bⁿ [MOD m]`
+#. §2: `n`
+#. §3: `0`
+#. §4: `1`
+#. §5: `pow_succ`
+#: Game.Levels.NumberTheory.L06_CongrPow
+msgid "We have seen that congruence is preserved by both addition and multiplication.\n"
+"\n"
+"What about powers?\n"
+"\n"
+"If\n"
+"\n"
+"§0,\n"
+"\n"
+"is it also true that\n"
+"\n"
+"§1?\n"
+"\n"
+"It is! The proof uses mathematical induction on the exponent §2.\n"
+"\n"
+"The base case is immediate since every number raised to the power §3 is §4.\n"
+"For the inductive step, rewrite both powers using §5, then apply\n"
+"the multiplication theorem from the previous level."
+msgstr ""
+
+#: Game.Levels.GraphTheory.L01_SingleEdge
+msgid "That was easy, wasn't it"
+msgstr ""
+
+#. §0: ```
+#. axiom inner_sum_prod_left
+#.   (r s : Nat) (a : Nat -> Int) (b : Nat -> Int) :
+#.   (∑ r' ∈ Finset.range r, b r'
+#.       * (∑ s' ∈ Finset.range s, a s'))
+#.     =
+#.   (∑ r' ∈ Finset.range r,
+#.     ∑ s' ∈ Finset.range s,
+#.       b r' * a s')
+#. ```
+#: Game.Levels.AlgebraWorld.L06_BinomialProduct
+msgid "§0\n"
+"\n"
+"∑ b * (∑ a) = ∑ ∑ (b * a)\n"
+"Manipulating nested summations"
+msgstr ""
+
+#. §0: ```
+#. axiom sum_extension (k : Nat) (f : Nat -> Nat) :
+#.   ∑ i ∈ Finset.range (k + 1), f i
+#.     = f k +
+#.   ∑ i ∈ Finset.range k, f i
+#. ```
+#. §1: `f`
+#. §2: `k`
+#. §3: `f`
+#. §4: `k`
+#. §5: `f`
+#. §6: `k - 1`
+#. §7: `f (k)`
+#. §8: `f`
+#. §9: `lambda x: ...`
+#. §10: `fun x => ...`
+#. §11: `x`
+#. §12: `fun a b c => ...`
+#. §13: `fun x => x + 1`
+#. §14: `lambda x : x + 1`
+#. §15: `=`
+#. §16: `>`
+#. §17: ```
+#. sum_extension 4 (fun x => x + 1)
+#. ```
+#. §18: ```
+#. ∑ i ∈ Finset.range 5, (i + 1)
+#.   = (4 + 1) +
+#. ∑ i ∈ Finset.range 4, (i + 1)
+#. ```
+#. §19: `rw [sum_extension 4 (fun x => x + 1)]`
+#: Game.Levels.AlgebraWorld.L04_HockeyStick
+msgid "§0\n"
+"Given a function §1 and a number §2, this theorem states that\n"
+"the summation of §3 till §4 is equal to the summation of §5 till §6 plus §7.\n"
+"\n"
+"# Syntax Tips\n"
+"You will probably have to program the function §8 that you will give to this theorem as input.\n"
+"You may be familiar with Python's anonymous function syntax (§9).  Lean has something\n"
+"very similar.  Use §10 to define an anonymous function that takes §11 as an input.  For\n"
+"multiple arguments, use §12.\n"
+"\n"
+"For example §13 is equivalent to §14 in Python. (The arrow symbol is typed\n"
+"using an equal-to sign §15 followed by §16).\n"
+"\n"
+"# Usage\n"
+"§17\n"
+"proves the following goal:\n"
+"§18\n"
+"after simplification.  Use §19 if you want to rewrite the goal state\n"
+"using this theorem."
+msgstr ""
+
+#. §0: `theorem handshake_lemma (G : Graph) : sumDegrees G = 2 * edgeCount G`
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "The sum of the degrees of the vertices is twice the number of the edges in a graph.\n"
+"§0"
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L02_ChooseNN
+msgid "Choose n n = 1"
+msgstr ""
+
+#: Game.Levels.GraphTheory.L07_Bipartite
+msgid "Bipartite Graphs Have No Odd Cycles"
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L01_PascalRule
+msgid "Pascal's Rule"
+msgstr ""
+
+#: Game.Levels.GraphTheory.L07_Bipartite
+msgid "Nice!!"
+msgstr ""
+
+#. §0: `False`
+#. §1: `contradiction`
+#: Game.Levels.GraphTheory.L06_Triangle
+msgid "P.S. To prove §0, use the §1 tactic when you see two obviously contradictory\n"
+"hypotheses in your goal state."
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L03_RowSum
+msgid "A Row of Powers"
+msgstr ""
+
+#. §0: ```
+#. theorem binomialTheorem
+#.   (x y : Int)
+#.   (n : Nat) :
+#.   binomialExpansion x y n
+#.     =
+#.   (x + y)^n
+#. ```
+#. §1: `binomialExpansion`
+#: Game.Levels.AlgebraWorld.L07_BinomialTheorem
+msgid "The binomial theorem.\n"
+"§0\n"
+"See §1"
+msgstr ""
+
+#. §0: `m`
+#. §1: `n`
+#. §2: `r`
+#: Game.Levels.AlgebraWorld.L05_Vandermonde
+msgid "You can induct on any one of §0, §1 or §2...but only one of them is actually feasible. Which one?"
+msgstr ""
+
+#. §0: ```
+#. -- if a vertex is not colored red, it is colored blue
+#. axiom neq_red : col ≠ Color.red → col = Color.blue
+#. -- and vice versa
+#. axiom neq_blue : col ≠ Color.blue → col = Color.red
+#. ```
+#. §1: ```
+#. have he : c 0 ≠ Color.red
+#. have he' : c 0 = Color.blue := by exact (neq_red he)
+#. ```
+#: Game.Levels.GraphTheory.L06_Triangle
+#: Game.Levels.GraphTheory.L06_Triangle
+msgid "§0\n"
+"\n"
+"## Usage\n"
+"§1\n"
+"similarly for neq_blue"
+msgstr ""
+
+#. §0: ```
+#. -- multiset of degrees of each vertex
+#. def DegreeContributions (G : Graph) := (Multiset.map (degree G) G.V.val)
+#. def EvenDegreeContributions (G : Graph) := (DegreeContributions G).filter (fun x => Even x)
+#. -- number of nodes with even degree
+#. def evenDegreeCount (G : Graph) : Nat := (EvenDegreeContributions G).card
+#. ```
+#. §1: `evenDegreeCount G`
+#: Game.Levels.GraphTheory.L04_OddDegVerts
+msgid "§0\n"
+"§1 gives you the number of vertices in the graph with even degree."
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L04_HockeyStick
+msgid "The hockey-stick theorem is a famous mathematical rule in combinatorics. It states that the sum of\n"
+"the numbers along any diagonal in Pascal's triangle, starting from any element on the outer edge,\n"
+"is equal to the element just below and to the opposite side of the diagonal's end.\n"
+"\n"
+"More formally,\n"
+"∑(k = r till k = n) choose k r = choose (n + 1) (r + 1)"
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L03_RowSum
+msgid "Add all entries in a row of Pascal's triangle.  It sums to 2^n.  Apparently.\n"
+"Prove it by induction."
+msgstr ""
+
+#: Game.Levels.NumberTheory.L02_Symmetry
+msgid "Symmetry"
+msgstr ""
+
+#. §0: ```
+#. def diagonalSum (n k : Nat) : Nat :=
+#.   ∑ i ∈ Finset.range (k + 1),
+#.     choose (n + i) n
+#. ```
+#. §1: `hockey_stick`
+#: Game.Levels.AlgebraWorld.L04_HockeyStick
+msgid "§0\n"
+"Sum of the numbers along any diagonal in Pascal's triangle, starting from any element on the outer\n"
+"edge. Used in the theorem §1."
+msgstr ""
+
+#. §0: ```
+#. structure OddCycle (G : Graph) where
+#.   start : Nat
+#.   finish : Nat
+#.   hsame : finish = start
+#. ```
+#. §1: `start`
+#. §2: `finish`
+#. §3: `hsame`
+#. §4: `start`
+#. §5: `finish`
+#. §6: `oddCycle_opposite_color`
+#: Game.Levels.GraphTheory.L07_Bipartite
+msgid "Defines a cycle of odd-length in a graph.\n"
+"\n"
+"§0\n"
+"§1 is the first (arbitrarily chosen) node of the cycle, §2 is the last node of the cycle.\n"
+"§3 is the hypothesis that §4 and §5 correspond to the same node, i.e. that the path\n"
+"forms a cycle. That it is a cycle of odd-length is not explicitly encoded in this definition, see\n"
+"theorem §6 for that."
+msgstr ""
+
+#: Game.Levels.NumberTheory.L03_Transitivity
+msgid "Transitivity"
+msgstr ""
+
+#: Game.Levels.GraphTheory.L02_AddEdge
+msgid "Check your unlocked theorems"
+msgstr ""
+
+#: Game.Levels.GraphTheory.L02_AddEdge
+msgid "Adding One Edge"
+msgstr ""
+
+#: Game.Levels.AlgebraWorld.L03_RowSum
+msgid "Sum of the elements of the n-th row of the Pascal's triangle = 2^n"
+msgstr ""
+
+#. §0: ```
+#. axiom choose_n0 : choose n 0 = 1
+#. ```
+#: Game.Levels.AlgebraWorld.L02_ChooseNN
+msgid "Choose n 0 = 1 for all n.\n"
+"§0"
+msgstr ""
+
+#. §0: `a ≡ b [MOD m]`
+#. §1: `b ≡ c [MOD m]`
+#. §2: `m`
+#. §3: `a ≡ c [MOD m]`
+#: Game.Levels.NumberTheory.L03_Transitivity
+msgid "The final basic property of congruence is **transitivity**.\n"
+"\n"
+"Suppose\n"
+"\n"
+"- §0, and\n"
+"- §1.\n"
+"\n"
+"Since all three numbers have the same remainder when divided by §2,\n"
+"it follows that\n"
+"\n"
+"§3.\n"
+"\n"
+"This proof requires rewriting with two hypotheses."
+msgstr ""
+
+#. §0: ```
 #. -- if the sum of a sequence of numbers is even, the number of odd numbers in the sequence must be even
 #. axiom even_sum_even_odds (A : Multiset Nat) (hA : Even (A.sum)) : Even (A.filter (fun a => Odd a)).card
 #. ```
@@ -820,6 +1478,16 @@ msgstr ""
 msgid "§0\n"
 "§1 is the proof that the total number of odd numbers in §2 must be even if\n"
 "§3 is even.  The hypothesis that the sum of the elements of §4 is even is §5."
+msgstr ""
+
+#. §0: `induction`
+#. §1: `0 < 1`
+#. §2: `k - 1 < k`
+#. §3: `linarith`
+#: Game.Levels.AlgebraWorld.L02_ChooseNN
+msgid "Prove that choose n n = 1 for all n.\n"
+"Use the §0 tactic.\n"
+"If you need to solve any trivial inequalities, like, say §1 or §2, use the §3 tactic."
 msgstr ""
 
 #. §0: `Bipartite G`
@@ -836,8 +1504,22 @@ msgid "§0 is the proposition that a graph is two-colourable, i.e.\n"
 "See the definition of §2 and §3 for more. Use §4 to expand this definition."
 msgstr ""
 
-#: Game.Levels.AlgebraWorld
-msgid "Algebra World"
+#. §0: `a ≡ b [MOD m]`
+#. §1: `c ≡ d [MOD m]`
+#. §2: `a + c ≡ b + d [MOD m]`
+#: Game.Levels.NumberTheory.L04_Addition
+#: Game.Levels.NumberTheory.L05_Multiplication
+msgid "If\n"
+"\n"
+"§0\n"
+"\n"
+"and\n"
+"\n"
+"§1\n"
+"\n"
+"then\n"
+"\n"
+"§2."
 msgstr ""
 
 #. §0: ```

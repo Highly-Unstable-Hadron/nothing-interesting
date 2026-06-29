@@ -1,6 +1,6 @@
 import Game.Metadata
 
-World "Number Theory"
+World "NumberTheory"
 
 Level 4
 
