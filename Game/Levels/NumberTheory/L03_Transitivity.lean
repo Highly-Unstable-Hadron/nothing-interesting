@@ -20,8 +20,6 @@ Since all three numbers have the same remainder when divided by `m`,
 it follows that
 
 `a ≡ c [MOD m]`.
-
-This proof requires rewriting with two hypotheses.
 "
 
 

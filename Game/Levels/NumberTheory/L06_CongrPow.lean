@@ -20,12 +20,6 @@ If
 is it also true that
 
 `aⁿ ≡ bⁿ [MOD m]`?
-
-It is! The proof uses mathematical induction on the exponent `n`.
-
-The base case is immediate since every number raised to the power `0` is `1`.
-For the inductive step, rewrite both powers using `pow_succ`, then apply
-the multiplication theorem from the previous level.
 "
 
 /--

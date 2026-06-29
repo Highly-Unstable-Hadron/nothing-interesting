@@ -20,9 +20,6 @@ Since replacing a number by another with the same remainder does not change the
 remainder of a product, we obtain
 
 `a * c ≡ b * d [MOD m]`.
-
-This proof is almost identical to the previous level. The only difference is
-that instead of using `mod_add`, you will use `mod_mul`.
 "
 
 /--
