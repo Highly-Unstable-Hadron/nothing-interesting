@@ -1,5 +1,6 @@
 import Game.Levels.AlgebraWorld
 import Game.Levels.GraphTheory
+import Game.Levels.NumberTheory
 
 -- Game "KnivesOut"
 

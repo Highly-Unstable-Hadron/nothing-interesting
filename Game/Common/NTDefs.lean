@@ -2,58 +2,76 @@ import Mathlib
 
 namespace NumberTheory
 
-abbrev gcd := Nat.gcd
+open Nat
 
-def Prime (p : Nat) : Prop :=
-  Nat.Prime p
+/-- Congruence modulo `m`. -/
+@[simp]
+def Congruent (a b m : Nat) : Prop :=
+  a % m = b % m
 
-def Bezout (a b : Nat) : Prop :=
-  ∃ x y : Int,
-    x * a + y * b = gcd a b
+axiom mod_one {a : Nat} : a % 1 = 0
+axiom mod_zero {a : Nat} : a % 0 = a
+axiom zero_mod {m : Nat} : 0 % m = 0
+axiom one_mod_x {a : Nat} : 1 % (a + 1) = 1
 
-axiom gcd_step
-  (a b : Nat) :
-  gcd a b = gcd b (a % b)
+axiom pow_succ (a : Nat) : a ^ (n + 1) = a ^ n * a
 
-axiom gcd_zero
-  (a : Nat) :
-  gcd a 0 = a
+axiom mod_mod (a m : Nat) : (a % m) % m = a % m
 
-axiom bezout_identity
-  (a b : Nat) :
-  Bezout a b
+axiom mod_add (a b m : Nat) : (a + b) % m = (a % m + b % m) % m
+axiom mod_mul (a b m : Nat) : (a * b) % m = ((a % m) * (b % m)) % m
 
-axiom bezout_coprime
-  (a b : Nat)
-  (h : gcd a b = 1) :
-  ∃ x y : Int,
-    x * a + y * b = 1
+-- levels
+-- theorem congr_reflexive
+--   (a m : Nat) :
+--   Congruent a a m := by
+--   rw [Congruent]
 
-axiom dvd_linearCombination
-  (d a b : Nat)
-  (x y : Int) :
-  d ∣ a →
-  d ∣ b →
-  d ∣ Int.natAbs (x * a + y * b)
+-- theorem congr_symmetric
+--   (a b m : Nat)
+--   (h : Congruent a b m) :
+--   Congruent b a m := by
+--   rw [Congruent]
+--   rw [Congruent] at h
+--   rw [h]
 
-axiom prime_coprime
-  (p a : Nat) :
-  Prime p →
-  ¬ p ∣ a →
-  gcd p a = 1
+-- theorem congr_transitive
+--   (a b c m : Nat)
+--   (h1 : Congruent a b m)
+--   (h2 : Congruent b c m) :
+--   Congruent a c m := by
+--   rw [Congruent] at h1 h2
+--   rw [h2] at h1
+--   rw [Congruent, h1]
 
-axiom dvd_mul_left
-  (a b : Nat) :
-  a ∣ a * b
+-- theorem congr_add
+--   (a b c d m : Nat)
+--   (ha : Congruent a b m)
+--   (hb : Congruent c d m) :
+--   Congruent (a + c) (b + d) m := by
+--   rw [Congruent] at ha hb
+--   rw [Congruent, mod_add a c m, mod_add b d m, ha, hb]
 
-axiom dvd_mul_right
-  (a b : Nat) :
-  a ∣ b * a
+-- theorem congr_mul
+--   (a b c d m : Nat)
+--   (ha : Congruent a b m)
+--   (hb : Congruent c d m) :
+--   Congruent (a * c) (b * d) m := by
+--   rw [Congruent] at ha hb
+--   rw [Congruent]
+--   rw [mod_mul a c m, mod_mul b d m, ha, hb]
 
-axiom dvd_trans
-  (a b c : Nat) :
-  a ∣ b →
-  b ∣ c →
-  a ∣ c
+-- theorem congr_pow
+--   (a b m : Nat)
+--   (n : Nat)
+--   (h : Congruent a b m) :
+--   Congruent (a ^ n) (b ^ n) m := by
+--   rw [Congruent] at h
+--   rw [Congruent]
+--   induction n with
+--    | zero =>
+--       simp
+--    | succ n ih =>
+--       rw [pow_succ a, pow_succ b, mod_mul (a^n), mod_mul (b^n), ih, h]
 
 end NumberTheory
