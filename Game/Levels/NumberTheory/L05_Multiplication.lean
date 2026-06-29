@@ -44,7 +44,7 @@ For example,
 
 Both computations produce the same remainder.
 -/
-TheoremDoc NumberTheory.mod_mul as "mod_mul" in "Number Theory"
+TheoremDoc NumberTheory.mod_mul as "mod_mul" in "NumberTheory"
 
 /--
 If
@@ -59,16 +59,16 @@ then
 
 `a * c ≡ b * d [MOD m]`.
 -/
-TheoremDoc NumberTheory.congr_mul as "congr_mul" in "Number Theory"
+TheoremDoc NumberTheory.congr_mul as "congr_mul" in "NumberTheory"
 
 Statement congr_mul
   (a b c d m : Nat)
   (ha : Congruent a b m)
   (hb : Congruent c d m) :
   Congruent (a * c) (b * d) m := by
-  rw [Congruent] at ha hb
-  rw [Congruent]
-  rw [mod_mul a c m, mod_mul b d m, ha, hb]
+    rw [Congruent] at ha hb
+    rw [Congruent]
+    rw [mod_mul a c m, mod_mul b d m, ha, hb]
 
 NewTheorem NumberTheory.mod_mul
 

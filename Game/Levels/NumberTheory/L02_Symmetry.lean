@@ -25,15 +25,15 @@ Congruence is symmetric:
 
 if `a ≡ b [MOD m]`, then `b ≡ a [MOD m]`.
 -/
-TheoremDoc NumberTheory.congr_symmetric as "congr_symmetric" in "Number Theory"
+TheoremDoc NumberTheory.congr_symmetric as "congr_symmetric" in "NumberTheory"
 
 Statement congr_symmetric
-(a b m : Nat)
-(h : Congruent a b m) :
-Congruent b a m := by
-  rw [Congruent]
-  rw [Congruent] at h
-  rw [h]
+  (a b m : Nat)
+  (h : Congruent a b m) :
+  Congruent b a m := by
+    rw [Congruent]
+    rw [Congruent] at h
+    rw [h]
 
 NewDefinition Game.Common.NTDefs.Congruent
 

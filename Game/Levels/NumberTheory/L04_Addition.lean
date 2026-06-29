@@ -45,19 +45,7 @@ For example,
 
 Both computations produce the same remainder.
 -/
-TheoremDoc NumberTheory.mod_add as "mod_add" in "Number Theory"
-
-/--
-
--- ```
--- axiom mod_mul (a b m : Nat) :
---   (a * b) % m =
---   ((a % m) * (b % m)) % m
--- ```
-
--- Reducing two numbers modulo `m` before multiplying them produces the same
--- remainder as multiplying first and then reducing modulo `m`.
--- -/
+TheoremDoc NumberTheory.mod_add as "mod_add" in "NumberTheory"
 -- TheoremDoc NumberTheory.mod_mul as "mod_mul" in "NumberTheory"
 
 /--
@@ -76,14 +64,14 @@ then
 TheoremDoc NumberTheory.congr_add as "congr_add" in "NumberTheory"
 
 Statement congr_add
-(a b c d m : Nat)
-(ha : Congruent a b m)
-(hb : Congruent c d m) :
-Congruent (a + c) (b + d) m := by
-  rw [Congruent] at ha hb
-  rw [Congruent]
-  rw [mod_add a c m, mod_add b d m]
-  rw [ha, hb]
+  (a b c d m : Nat)
+  (ha : Congruent a b m)
+  (hb : Congruent c d m) :
+  Congruent (a + c) (b + d) m := by
+    rw [Congruent] at ha hb
+    rw [Congruent]
+    rw [mod_add a c m, mod_add b d m]
+    rw [ha, hb]
 
 NewTheorem NumberTheory.mod_add
 NewTactic exact apply rfl «have»

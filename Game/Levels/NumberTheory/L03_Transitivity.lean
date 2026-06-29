@@ -31,15 +31,15 @@ Congruence is transitive:
 if `a ≡ b [MOD m]` and `b ≡ c [MOD m]`,
 then `a ≡ c [MOD m]`.
 -/
-TheoremDoc NumberTheory.congr_transitive as "congr_transitive" in "Number Theory"
+TheoremDoc NumberTheory.congr_transitive as "congr_transitive" in "NumberTheory"
 
 Statement congr_transitive
-(a b c m : Nat)
-(h1 : Congruent a b m)
-(h2 : Congruent b c m) :
-Congruent a c m := by
-  rw [Congruent] at h1 h2
-  rw [h2] at h1
-  rw [Congruent, h1]
+  (a b c m : Nat)
+  (h1 : Congruent a b m)
+  (h2 : Congruent b c m) :
+  Congruent a c m := by
+    rw [Congruent] at h1 h2
+    rw [h2] at h1
+    rw [Congruent, h1]
 
 end NumberTheory

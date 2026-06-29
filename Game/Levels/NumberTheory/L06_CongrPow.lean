@@ -49,7 +49,7 @@ x^5 = x^4 * x
 This theorem is especially useful when proving statements about powers by
 induction.
 -/
-TheoremDoc NumberTheory.pow_succ as "pow_succ" in "Number Theory"
+TheoremDoc NumberTheory.pow_succ as "pow_succ" in "NumberTheory"
 
 /--
 If
@@ -62,22 +62,22 @@ then
 
 for every natural number `n`.
 -/
-TheoremDoc NumberTheory.congr_pow as "congr_pow" in "Number Theory"
+TheoremDoc NumberTheory.congr_pow as "congr_pow" in "NumberTheory"
 
 Statement congr_pow
   (a b m : Nat)
   (n : Nat)
   (h : Congruent a b m) :
   Congruent (a ^ n) (b ^ n) m := by
-  rw [Congruent] at h
-  rw [Congruent]
-  induction n with
-  | zero =>
-      simp
-  | succ n ih =>
-      rw [pow_succ a, pow_succ b]
-      rw [mod_mul (a ^ n) a m, mod_mul (b ^ n) b m]
-      rw [ih, h]
+    rw [Congruent] at h
+    rw [Congruent]
+    induction n with
+    | zero =>
+        simp
+    | succ n ih =>
+        rw [pow_succ a, pow_succ b]
+        rw [mod_mul (a ^ n) a m, mod_mul (b ^ n) b m]
+        rw [ih, h]
 
 NewTheorem NumberTheory.pow_succ NumberTheory.congr_pow
 NewTactic induction

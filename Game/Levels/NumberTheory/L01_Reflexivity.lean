@@ -44,18 +44,18 @@ simp
 ```
 since the definition is marked with `@[simp]`.
 -/
-DefinitionDoc Game.Common.NTDefs.Congruent as "Congruent" in "Number Theory"
+DefinitionDoc Game.Common.NTDefs.Congruent as "Congruent" in "NumberTheory"
 
 /--
 Reflexivity of congruence.
 Every natural number is congruent to itself modulo every modulus.
 -/
-TheoremDoc NumberTheory.congr_reflexive as "congr_reflexive" in "Number Theory"
+TheoremDoc NumberTheory.congr_reflexive as "congr_reflexive" in "NumberTheory"
 
 Statement congr_reflexive
-(a m : Nat) :
-Congruent a a m := by
-  rw [Congruent]
+  (a m : Nat) :
+  Congruent a a m := by
+    rw [Congruent]
 
 NewDefinition Game.Common.NTDefs.Congruent
 NewTactic rw nth_rewrite change simp «repeat»
