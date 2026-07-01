@@ -60,7 +60,7 @@ Statement
         rw [mod_mul (a ^ n) a m, mod_mul (b ^ n) b m]
         rw [ih, h]
 
-NewTheorem NumberTheory.pow_succ NumberTheory.congr_pow
+NewTheorem NumberTheory.pow_succ
 NewTactic induction
 
 end NumberTheory
