@@ -19,13 +19,7 @@ Suppose
 Since `a` and `b` have the same remainder modulo `m`, and so do `c` and `d`,
 adding the two congruences together should produce another congruence:
 
-`a + c ≡ b + d [MOD m]`.
-
-The helper theorem `mod_add` formalizes the fact that reducing each summand before adding
-gives the same remainder as adding first and reducing afterwards.
-
-This level also unlocks a few basic Lean tactics that will be useful throughout the
-rest of the game.
+`a + c ≡ b + d [MOD m]`
 "
 
 /--
@@ -48,22 +42,7 @@ Both computations produce the same remainder.
 TheoremDoc NumberTheory.mod_add as "mod_add" in "NumberTheory"
 -- TheoremDoc NumberTheory.mod_mul as "mod_mul" in "NumberTheory"
 
-/--
-If
-
-`a ≡ b [MOD m]`
-
-and
-
-`c ≡ d [MOD m]`
-
-then
-
-`a + c ≡ b + d [MOD m]`.
--/
-TheoremDoc NumberTheory.congr_add as "congr_add" in "NumberTheory"
-
-Statement congr_add
+Statement 
   (a b c d m : Nat)
   (ha : Congruent a b m)
   (hb : Congruent c d m) :

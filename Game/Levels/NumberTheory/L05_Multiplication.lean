@@ -43,22 +43,7 @@ Both computations produce the same remainder.
 -/
 TheoremDoc NumberTheory.mod_mul as "mod_mul" in "NumberTheory"
 
-/--
-If
-
-`a ≡ b [MOD m]`
-
-and
-
-`c ≡ d [MOD m]`
-
-then
-
-`a * c ≡ b * d [MOD m]`.
--/
-TheoremDoc NumberTheory.congr_mul as "congr_mul" in "NumberTheory"
-
-Statement congr_mul
+Statement
   (a b c d m : Nat)
   (ha : Congruent a b m)
   (hb : Congruent c d m) :

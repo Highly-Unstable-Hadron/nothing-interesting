@@ -9,7 +9,7 @@ Title "Transitivity"
 namespace NumberTheory
 
 Introduction "
-The final basic property of congruence is **transitivity**.
+The final basic property of congruence is transitivity.
 
 Suppose
 
@@ -22,16 +22,7 @@ it follows that
 `a ≡ c [MOD m]`.
 "
 
-
-/--
-Congruence is transitive:
-
-if `a ≡ b [MOD m]` and `b ≡ c [MOD m]`,
-then `a ≡ c [MOD m]`.
--/
-TheoremDoc NumberTheory.congr_transitive as "congr_transitive" in "NumberTheory"
-
-Statement congr_transitive
+Statement 
   (a b c m : Nat)
   (h1 : Congruent a b m)
   (h2 : Congruent b c m) :

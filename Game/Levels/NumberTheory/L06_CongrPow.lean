@@ -45,20 +45,7 @@ induction.
 -/
 TheoremDoc NumberTheory.pow_succ as "pow_succ" in "NumberTheory"
 
-/--
-If
-
-`a ≡ b [MOD m]`,
-
-then
-
-`aⁿ ≡ bⁿ [MOD m]`
-
-for every natural number `n`.
--/
-TheoremDoc NumberTheory.congr_pow as "congr_pow" in "NumberTheory"
-
-Statement congr_pow
+Statement
   (a b m : Nat)
   (n : Nat)
   (h : Congruent a b m) :

@@ -58,7 +58,9 @@ axiom vandermonde_step
     +
   choose (m + n) (r + 1)
 
+@[simp]
 axiom sub_add_cancel (a b : Nat) : a - b + b = a
+@[simp]
 axiom add_sub_add_cancel (a b c : Nat) : a + (b - c) + c = a + b
 
 /--
