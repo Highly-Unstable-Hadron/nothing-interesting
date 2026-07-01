@@ -16,17 +16,6 @@ Every entry is the sum of the two entries above it.
 "
 
 /--
-`rw [h]` rewrites using an equality.  Transforms every instance of the LHS of `h` in the goal state
-to the RHS of `h`.  `h` must be an equality.
-
-Example:
-```
-rw [factorial_succ]
-```
--/
-TacticDoc rw
-
-/--
 `choose n k` is the binomial coefficient `(n choose k)`, i.e. the number of groups that can be made
 of size `k` from a set of size `n`.
 
@@ -34,17 +23,6 @@ Do NOT attempt `rw [choose]`, it will not help in solving any of the problems.
 Use one of the identities provided to manipulate expressions involve `choose`
 -/
 DefinitionDoc Game.Common.AlgebraDefs.choose as "choose" in "Algebra"
-
-/--
-`simp` simplifies the goal using known definitions and theorems.
-
-Example:
-```
-example : 0 + n = n := by
-simp
-```
--/
-TacticDoc simp
 
 /--
 Pascal's Rule:

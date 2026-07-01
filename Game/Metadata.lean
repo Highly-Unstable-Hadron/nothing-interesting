@@ -1,5 +1,6 @@
 import GameServer
 import GameServer.Commands
+import Game.Doc.Tactics
 -- import Mathlib.Tactic.Common
 import Game.Common.GraphDefs
 import Game.Common.GraphParity
